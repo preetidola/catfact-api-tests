@@ -1,0 +1,1607 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.3.2 (Python 3.12.12 on win32)" generated="2025-10-24T18:52:30.536127" rpa="false" schemaversion="5">
+<suite id="s1" name="Catfact Api Tests" source="C:\Users\dolap\Downloads\catfact_api_robot\tests\catfact_api_tests.robot">
+<kw name="Create Session" owner="RequestsLibrary" type="SETUP">
+<msg time="2025-10-24T18:52:31.028682" level="INFO">Creating Session using : alias=catfact, url=https://catfact.ninja, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<arg>catfact</arg>
+<arg>${BASE_URL}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="PASS" start="2025-10-24T18:52:31.028682" elapsed="0.005973"/>
+</kw>
+<test id="s1-t1" name="Verify GET /fact returns 200" line="18">
+<kw name="Get Random Fact" owner="api_keywords">
+<kw name="GET" owner="RequestsLibrary">
+<msg time="2025-10-24T18:52:34.338584" level="INFO">GET Request : url=https://catfact.ninja/fact 
+ path_url=/fact 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg time="2025-10-24T18:52:34.338584" level="INFO">GET Response : url=https://catfact.ninja/fact 
+ status=200, reason=OK 
+ headers={'Date': 'Fri, 24 Oct 2025 16:52:32 GMT', 'Content-Type': 'application/json', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Server': 'cloudflare', 'Cache-Control': 'no-cache, private', 'x-ratelimit-limit': '100', 'x-ratelimit-remaining': '84', 'access-control-allow-origin': '*', 'x-frame-options': 'SAMEORIGIN', 'x-xss-protection': '1; mode=block', 'x-content-type-options': 'nosniff', 'Nel': '{"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}', 'cf-cache-status': 'DYNAMIC', 'Report-To': '{"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=0jtwMbx0PdR5aJkbQ6S80GHIlg9A3eiEs1JAvniOLHbCa5byv6F5SAgtvrcGI88u9so%2FZyYl28ljaO%2F9CrAkv%2F1IW1FbTx0COyV1UGZQeyLc%2Blwdrosgbhc%3D"}]}', 'Content-Encoding': 'gzip', 'Set-Cookie': 'XSRF-TOKEN=eyJpdiI6Ill6WmFiL0s0dFpkQ3preG50eFF0TEE9PSIsInZhbHVlIjoidCtCMTFHR2dpNmZ3T3dSaitTTnZvYm9VM1NRek81QkFEbXoyZGlISUVnNStLNEFDZG5Ea0dNMEhVMnJRU3VCaXZLd2RwVjRxMTBNUm0zWXdyWjdOdmlvajBaYmQ4T1JFek4xb3ZsQ0JFdHROVlpKZ2ltT3dPN0lMMytEaiswYlMiLCJtYWMiOiJjMDU2NjgyOWE3ODVkYmFkY2IyOGFkOTcyZTJmNTQ2MjMyYzUwM2VlOGM4MDY0NDE4NDkyY2U1MTYwYmQ2N2EzIiwidGFnIjoiIn0%3D; SameSite=Lax; Secure; Path=/; Max-Age=7200; Expires=Fri, 24 Oct 2025 18:52:32 GMT, catfacts_session=eyJpdiI6Ik5haGtwNGRLbzZVcGw5dnN6b2Y1L2c9PSIsInZhbHVlIjoiLzNSRUZtcHA0Z2tQNTlweUozbzVWY2g1MWVzVHdWb0Q4UUVCRDhiVlNUQ0dzUm1DY2dyZGRnZWM2MG5EM1RlMXJ3c2djcWl5TXp0VmY5ZTAzZ3JDaWNWdG5CN1NHTDJ2QTM5c2RXUFV3NTF1ZnBDOFgyK3hXSWNVcVFPaG5GQXoiLCJtYWMiOiIyZjJjZmUyZjUwYWU2MzkxMjZkNzU5ZmQzNzM4ZTJmNWMwMTI3YjdhMWYyMTIwZjgzM2YyZmQ2MTkyNDIzMDJiIiwidGFnIjoiIn0%3D; HttpOnly; SameSite=Lax; Secure; Path=/; Max-Age=7200; Expires=Fri, 24 Oct 2025 18:52:32 GMT, IGx3SVxCC58nyF9ablaYQ1E2KVUcx3KSfyIJ6LEK=eyJpdiI6Ik5HZnBwNDExRWJ2NkpZY3BqRGZCc1E9PSIsInZhbHVlIjoiN29PZHJkYVY0eU9ONGdUZEg1bWJTZGxwTE5sWGxvRzM2a25TKzcrWll5OTVsamJGNFFYaTBLalZKZ1NOMnN3eFRsRXVtaENPL3daZVN2dXhKbUxQNmxjNU0xZDdQNk93R3JaRER6UVNwcnc4ZUJ3dklvUHZrQUdKMXlUMHg0N3JveVg2OFN6Z0JtWG1meHpHSDA1T0VaMk1vb3VNc0xlSjF0VWYxUHpINGRKZGQzYmJwc091ZlkrZ2NMOFRqbTZ5MWZZTUJCQzVCZzN4a0FUQ2lHUlZWYkRjaXgxLzZRYUwrdUw3SlRrUjFJbk1BaUJydUlRbElvRVFRei9ZTVpWVzRjTEg3TnEzY0hLUDd1WXppM2d1clV5bkJndFF3cVpEMVkzZSsycXIyenF5VHNkN3N2Z3drRnFQZUZPdDg3WHJxR1g3TGNhZS9oQWxWV0tXUnh0Q1R1eW1mUmM0dnlQVzRLRk82V1RBYTNhbkFvVXR4RXJEZWxFcm9DOVo2NVJFIiwibWFjIjoiNWRiMmVjYjdlM2EzYjhkNjcyMGNkYTJlNTQzNDdhZmQ3YzFhMmVkMDk5YmM4NTM2ZjIxOTEzNDRkOGZhMzNiNiIsInRhZyI6IiJ9; HttpOnly; SameSite=Lax; Secure; Path=/; Max-Age=7200; Expires=Fri, 24 Oct 2025 18:52:32 GMT', 'CF-RAY': '993afc346e7945c8-SIN', 'alt-svc': 'h3=":443"; ma=86400'} 
+ body={"fact":"Siamese kittens are born white because of the heat inside the mother's uterus before birth. This heat keeps the kittens' hair from darkening on the points.","length":155} 
+ </msg>
+<msg time="2025-10-24T18:52:34.338584" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>https://catfact.ninja/fact</arg>
+<doc>Sends a GET request.</doc>
+<status status="PASS" start="2025-10-24T18:52:31.035843" elapsed="3.302741"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>\n[REQUEST] GET /fact</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-10-24T18:52:34.338584" elapsed="0.000000"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Status: ${response.status_code}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-10-24T18:52:34.338584" elapsed="0.000000"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Body: ${response.text}3</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-10-24T18:52:34.338584" elapsed="0.000000"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-10-24T18:52:34.338584" level="INFO">{"fact":"Siamese kittens are born white because of the heat inside the mother's uterus before birth. This heat keeps the kittens' hair from darkening on the points.","length":155}</msg>
+<arg>${response.text}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-10-24T18:52:34.338584" elapsed="0.000000"/>
+</kw>
+<return>
+<value>${response}</value>
+<status status="PASS" start="2025-10-24T18:52:34.338584" elapsed="0.000000"/>
+</return>
+<msg time="2025-10-24T18:52:34.338584" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<doc>Perform GET request to /fact endpoint</doc>
+<status status="PASS" start="2025-10-24T18:52:31.035843" elapsed="3.302741"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-10-24T18:52:34.338584" level="INFO">200</msg>
+<arg>${response.status_code}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-10-24T18:52:34.338584" elapsed="0.000000"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-10-24T18:52:34.338584" level="INFO">{"fact":"Siamese kittens are born white because of the heat inside the mother's uterus before birth. This heat keeps the kittens' hair from darkening on the points.","length":155}</msg>
+<arg>${response.text}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-10-24T18:52:34.338584" elapsed="0.000000"/>
+</kw>
+<kw name="Should Be Equal As Integers" owner="BuiltIn">
+<msg time="2025-10-24T18:52:34.338584" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${response.status_code}</arg>
+<arg>200</arg>
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<status status="PASS" start="2025-10-24T18:52:34.338584" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2025-10-24T18:52:31.034655" elapsed="3.303929"/>
+</test>
+<test id="s1-t2" name="Verify /fact response structure" line="24">
+<kw name="Get Random Fact" owner="api_keywords">
+<kw name="GET" owner="RequestsLibrary">
+<msg time="2025-10-24T18:53:01.901865" level="INFO">GET Request : url=https://catfact.ninja/fact 
+ path_url=/fact 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg time="2025-10-24T18:53:01.901865" level="INFO">GET Response : url=https://catfact.ninja/fact 
+ status=200, reason=OK 
+ headers={'Date': 'Fri, 24 Oct 2025 16:52:42 GMT', 'Content-Type': 'application/json', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Server': 'cloudflare', 'Cache-Control': 'no-cache, private', 'x-ratelimit-limit': '100', 'x-ratelimit-remaining': '98', 'access-control-allow-origin': '*', 'x-frame-options': 'SAMEORIGIN', 'x-xss-protection': '1; mode=block', 'x-content-type-options': 'nosniff', 'Nel': '{"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}', 'cf-cache-status': 'DYNAMIC', 'Report-To': '{"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=%2FvUDPxeyj7GV%2Fi7Nyq6w7OiSSVui47uMDqa63sOK%2BAUP30K9YxZur7VPhP0lAwl54%2FXXYzczBEmkOzjZcvV3VgAS94IPC8Qqr%2BBuK3HU9uF7I3xfiWpKKY4%3D"}]}', 'Content-Encoding': 'gzip', 'Set-Cookie': 'XSRF-TOKEN=eyJpdiI6IjZkbEdyVlQ0QlhCa0IreE1RM1NCWmc9PSIsInZhbHVlIjoiK1RUNUV0Qi9iM1dKNnRjZFhMK1BPWEtjSTZhVDFodldwM3ZiOHNNSlpSVGVDenloeGY3dlM0d0ROTXRQOTc1NnFvcHpBWXZqVlIwVjJrRnpIM0lmTDRmUVNFNVZmM2U2QkxMdmdOZ211SzB0azhtRG5uSGxNNzArMmhLeFF0MWMiLCJtYWMiOiIyMzlmN2I1MzM3NTM2ZWNlMzhmYzMwMGI4ZDA3ZDU2NjI5ZDI2N2JiNDQwMDE1ZmUxNDdiZDBiMWE5ZTRiY2U2IiwidGFnIjoiIn0%3D; SameSite=Lax; Secure; Path=/; Max-Age=7200; Expires=Fri, 24 Oct 2025 18:52:41 GMT, catfacts_session=eyJpdiI6IkVvSVNlUTZZWVNQMmt0cTJMLy82RVE9PSIsInZhbHVlIjoiRUk3SUkyWDMzQldhZWlOUkwrSUxCZHp3UnBuTXhvUUlmS0QxQjBpa3M3R250TTZwVDArNG44dTIrVGYrczFlMDhlZzRFMGNIVXgwMFB0T2NNYTNTL2E3Nk1XQm5mbVA5enoyMkM0RjlBVmU0c240czBDMFV5eFRvcEhlNVdRTjMiLCJtYWMiOiJlOTU5Y2NjOWY0ZGM5OWMwNTVlNDE0N2ZjOTgxODk2NjA5YTA1MGFiNjMyOTFlNWIyYWJhYzk0MjMzZDY1M2E2IiwidGFnIjoiIn0%3D; HttpOnly; SameSite=Lax; Secure; Path=/; Max-Age=7200; Expires=Fri, 24 Oct 2025 18:52:41 GMT, H2dfB4PFBK281ewWWaqsNoRUn6jYcYkYBB2IxrVE=eyJpdiI6ImMvQzhFTDJQdFNSMzFkcitpZFlqK1E9PSIsInZhbHVlIjoibld1OXJReHY0YnlrbmtqTDZaVTdkYkNnSnVEMUFaQW9wejQrKzgvMnB3Vlo5QTdKQjF4S0pHWlp4L0FUa2ZjejVBOXJjd0J6VjBqR1Q4ZlNsclpySWFxYWhGODFFZWtrSENtcFVFNlF1TVZaSytqT2UyM2lWcXRMSXQ1b3FVSkUrbWd5ZXFaMFdiZE9ZZ3pRZlBJZW9kSThNenk2K0VEZVE3NjZ4NndlWVBpTDJtUzhWUUJHNEducC9qQjEwNlBnYllNclZkRVlhS0E1cHRFOUI0SUxnbzBHaHpZSkF0VFNNRTM1djIzaTBwYnYvdWd3b2RPWmljdVppS3lIdk1HTC80Z0x2VjUxTTQrTUQ3NXU3Um1FTFNFbGxFY0hZOGJQckJ5MmVLQlNVT1lVL1ZKYXc5Sm1xOUQ4N3Z4dVplL1l2ak9McUZjNTlSVyttQlF1anU5Q0dqQ2l1QU9DOXhxV1dnWXhWbGJtdG9NN2NTUFY4QkFCa2RHc0RwMlRRRHFDIiwibWFjIjoiOGYyYjFmMTJmOWNiYTE4NmM3Y2U5YmM1MzM1ZjU2ZmM4OGVmNjQ4YTkxMGJjZTdhZDI3YzhkZTYxNzJhOWU4YSIsInRhZyI6IiJ9; HttpOnly; SameSite=Lax; Secure; Path=/; Max-Age=7200; Expires=Fri, 24 Oct 2025 18:52:41 GMT', 'CF-RAY': '993afc715d95fe03-SIN', 'alt-svc': 'h3=":443"; ma=86400'} 
+ body={"fact":"The Maine Coone is the only native American long haired breed.","length":62} 
+ </msg>
+<msg time="2025-10-24T18:53:01.901865" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>https://catfact.ninja/fact</arg>
+<doc>Sends a GET request.</doc>
+<status status="PASS" start="2025-10-24T18:52:34.338584" elapsed="27.563281"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>\n[REQUEST] GET /fact</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-10-24T18:53:01.901865" elapsed="0.000000"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Status: ${response.status_code}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-10-24T18:53:01.901865" elapsed="0.000000"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Body: ${response.text}3</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-10-24T18:53:01.904917" elapsed="0.000000"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-10-24T18:53:01.904917" level="INFO">{"fact":"The Maine Coone is the only native American long haired breed.","length":62}</msg>
+<arg>${response.text}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-10-24T18:53:01.904917" elapsed="0.000000"/>
+</kw>
+<return>
+<value>${response}</value>
+<status status="PASS" start="2025-10-24T18:53:01.904917" elapsed="0.000000"/>
+</return>
+<msg time="2025-10-24T18:53:01.904917" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<doc>Perform GET request to /fact endpoint</doc>
+<status status="PASS" start="2025-10-24T18:52:34.338584" elapsed="27.566333"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-10-24T18:53:01.904917" level="INFO">${json} = {'fact': 'The Maine Coone is the only native American long haired breed.', 'length': 62}</msg>
+<var>${json}</var>
+<arg>${response.json()}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-10-24T18:53:01.904917" elapsed="0.000000"/>
+</kw>
+<kw name="Validate Cat Fact Schema" owner="api_keywords">
+<kw name="Dictionary Should Contain Key" owner="Collections">
+<arg>${item}</arg>
+<arg>fact</arg>
+<doc>Fails if ``key`` is not found from ``dictionary``.</doc>
+<status status="PASS" start="2025-10-24T18:53:01.904917" elapsed="0.000000"/>
+</kw>
+<kw name="Dictionary Should Contain Key" owner="Collections">
+<arg>${item}</arg>
+<arg>length</arg>
+<doc>Fails if ``key`` is not found from ``dictionary``.</doc>
+<status status="PASS" start="2025-10-24T18:53:01.904917" elapsed="0.000000"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Validating that 'fact' is a string</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-10-24T18:53:01.904917" elapsed="0.000000"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-10-24T18:53:01.904917" level="INFO">${fact} = The Maine Coone is the only native American long haired breed.</msg>
+<var>${fact}</var>
+<arg>${item['fact']}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-10-24T18:53:01.904917" elapsed="0.000000"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-10-24T18:53:01.904917" level="INFO">${is_str} = True</msg>
+<var>${is_str}</var>
+<arg>isinstance($fact, str)</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-10-24T18:53:01.904917" elapsed="0.000000"/>
+</kw>
+<kw name="Should Be True" owner="BuiltIn">
+<arg>${is_str}</arg>
+<doc>Fails if the given condition is not true.</doc>
+<status status="PASS" start="2025-10-24T18:53:01.904917" elapsed="0.000000"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Validating that 'length' is an integer</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-10-24T18:53:01.904917" elapsed="0.000000"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-10-24T18:53:01.904917" level="INFO">${length} = 62</msg>
+<var>${length}</var>
+<arg>${item['length']}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-10-24T18:53:01.904917" elapsed="0.000000"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-10-24T18:53:01.904917" level="INFO">${is_int} = True</msg>
+<var>${is_int}</var>
+<arg>isinstance($length, int)</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-10-24T18:53:01.904917" elapsed="0.000000"/>
+</kw>
+<kw name="Should Be True" owner="BuiltIn">
+<arg>${is_int}</arg>
+<doc>Fails if the given condition is not true.</doc>
+<status status="PASS" start="2025-10-24T18:53:01.904917" elapsed="0.000000"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Validating that 'length' matches actual fact length</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-10-24T18:53:01.904917" elapsed="0.000000"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-10-24T18:53:01.904917" level="INFO">${fact_len} = 62</msg>
+<var>${fact_len}</var>
+<arg>len($fact)</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-10-24T18:53:01.904917" elapsed="0.000000"/>
+</kw>
+<kw name="Should Be Equal As Integers" owner="BuiltIn">
+<arg>${length}</arg>
+<arg>${fact_len}</arg>
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<status status="PASS" start="2025-10-24T18:53:01.904917" elapsed="0.000000"/>
+</kw>
+<arg>${json}</arg>
+<status status="PASS" start="2025-10-24T18:53:01.904917" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2025-10-24T18:52:34.338584" elapsed="27.566333"/>
+</test>
+<test id="s1-t3" name="Verify /fact with max_length parameter" line="29">
+<kw name="Get Random Fact With Max Length" owner="api_keywords">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-10-24T18:53:01.904917" level="INFO">${params} = {'max_length': '4'}</msg>
+<var>${params}</var>
+<arg>max_length=${max_length}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-10-24T18:53:01.904917" elapsed="0.000000"/>
+</kw>
+<kw name="GET" owner="RequestsLibrary">
+<msg time="2025-10-24T18:53:03.250196" level="INFO">GET Request : url=https://catfact.ninja/fact?max_length=4 
+ path_url=/fact?max_length=4 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg time="2025-10-24T18:53:03.250196" level="INFO">GET Response : url=https://catfact.ninja/fact?max_length=4 
+ status=200, reason=OK 
+ headers={'Date': 'Fri, 24 Oct 2025 16:53:03 GMT', 'Content-Type': 'application/json', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Server': 'cloudflare', 'Cache-Control': 'no-cache, private', 'x-ratelimit-limit': '100', 'x-ratelimit-remaining': '74', 'access-control-allow-origin': '*', 'x-frame-options': 'SAMEORIGIN', 'x-xss-protection': '1; mode=block', 'x-content-type-options': 'nosniff', 'Nel': '{"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}', 'cf-cache-status': 'DYNAMIC', 'Report-To': '{"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=U3X35OyLgNaBbOp%2FM3NkRqznK7bQ%2BpyLpQ8jNIVEPlmbd4uF5XwcwGXRm598N%2F8E9QiWbAm%2FlMF2NhkVTFu0ZZyKXbv8Ul3g%2BMj4TXS80yc8K%2BXal9qagKI%3D"}]}', 'Content-Encoding': 'gzip', 'Set-Cookie': 'XSRF-TOKEN=eyJpdiI6ImVyaWtQQWZBV25zTWJGRy8vakc5NFE9PSIsInZhbHVlIjoiQ2U2Mk8zcy9CajVwYURtUlVlcnczVlozL2NSU0tVeXpPNXN6bmZjdWRVV0RPb1J5ZTVHRzZBNWZJVDd5L3c5VnI0SC9HZ052SnpDTWZSTDBRbGxSdnhJbGRDR2psdHZ5bm5TZVgvSzVoS1Q0NXp6b3BtMjhVYWZDQVVtei9zcnYiLCJtYWMiOiI1N2FjN2QxZjgwNTA4ZjYxNGZlNDI4MjUwZjBiODY4YTI2YWY3ZDlkYTkwMWMwZWRiZTc4ODQ2YzExMjAwYmNmIiwidGFnIjoiIn0%3D; SameSite=Lax; Secure; Path=/; Max-Age=7200; Expires=Fri, 24 Oct 2025 18:53:03 GMT, catfacts_session=eyJpdiI6InJBVk1GOGtnWkhXc3EvajRsUzF6YkE9PSIsInZhbHVlIjoiTzdsRGZwa0xzaVJOdldaNTB3ZXFMNktHVmdpMWFGTEU0NTBOZEJrenlXVzdHdWErL0FoSkg0NmRPZDBia0RxN3dpYVpGKzFhd1J3OHhuQ3VBYmo3NGgxRVVDU1ZkaXE1T0RyTUpnUlQ1L3JwdTk1UTRrdG05SlpWd3RucEJBcUYiLCJtYWMiOiI3Mjg2Y2VjMThmNzAyNjZhNGIxNTU3NWViNTc0ZWFmMzgzZGQxM2ZlOGU4YWU1ZTA5NjRmMDI2OTlkYTZiMDBlIiwidGFnIjoiIn0%3D; HttpOnly; SameSite=Lax; Secure; Path=/; Max-Age=7200; Expires=Fri, 24 Oct 2025 18:53:03 GMT, 654cr55nazl2ThEm5W9UAYoBmMhxUUtq9GzyOeyi=eyJpdiI6IkN0UDNRUUxWdFJNN2JtZVZQOWZ1dnc9PSIsInZhbHVlIjoiMUJYZllMVE1sRWVuaVZ1VmVxS3VjWk5kYnBmQVFBYWl2NXo4TW8vazZHMWtvK0MrTXlBWVd5SFRYNk41cnZkbkNvbEg1UTRUa1B2dlk2MldiQ0dIcG5kdTZudlhVSk5FdHQxaHBKajEvTVNNTEhRTENPT0pYbDlrbDd4aWxMMUQxS0hrT1E0Y1RUMXdMYnFsNG4zWGl4bHNXSFZ6WGgxK1p3bzdSaU5RN3ZLenR6eWo0NW14N0ZjcW9RcUp4Y1Z6OEM1OHRkQng3dWQ4RkJqbmEyTGYxSmp6VTR5cUdYSU1vMS9ldVRUeXJTTW95dXFLSVo2cGwzWmF6bENwcFdBdzNoM093Q2p1MVYyODZ4MENtcVpvblkzRHJBbjN5eXlhMzNqMkpKbHhnL3BWbVhzQkhZUTVWT2hoZUVRNEo1NnFlZDZiSG8vbjJuUFFtLzFrb1hjbGM5blhlRVRtWmdPL3ppTHEydXRyMW8vTlV6QlluaXZGR1RnRnBlbGNqSFV5eVdrem5kbDBPeDh6NFYvKzIzUjZoUT09IiwibWFjIjoiNjdlZDlmOWM2YWYxMzc4OGQ5MTliNDZkNjNlOTM5MTY3ZmQ2OTM1OWMxMjQ0MWE2ODQ1NjdlMzc2NTg1NjJmYSIsInRhZyI6IiJ9; HttpOnly; SameSite=Lax; Secure; Path=/; Max-Age=7200; Expires=Fri, 24 Oct 2025 18:53:03 GMT', 'CF-RAY': '993afcf5a8fffd8d-SIN', 'alt-svc': 'h3=":443"; ma=86400'} 
+ body={} 
+ </msg>
+<msg time="2025-10-24T18:53:03.250196" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>https://catfact.ninja/fact</arg>
+<arg>params=${params}</arg>
+<doc>Sends a GET request.</doc>
+<status status="PASS" start="2025-10-24T18:53:01.904917" elapsed="1.345279"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>\n[DEBUG] GET /fact?max_length=${max_length}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-10-24T18:53:03.250196" elapsed="0.000000"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Status Code: ${response.status_code}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-10-24T18:53:03.250196" elapsed="0.000000"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Response Body: ${response.text}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-10-24T18:53:03.250196" elapsed="0.000000"/>
+</kw>
+<return>
+<value>${response}</value>
+<status status="PASS" start="2025-10-24T18:53:03.250196" elapsed="0.000000"/>
+</return>
+<msg time="2025-10-24T18:53:03.260390" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>${MAX_LENGTH}</arg>
+<doc>Perform GET request to /fact endpoint with max_length</doc>
+<status status="PASS" start="2025-10-24T18:53:01.904917" elapsed="1.355473"/>
+</kw>
+<kw name="Should Be Equal As Integers" owner="BuiltIn">
+<msg time="2025-10-24T18:53:03.260390" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${response.status_code}</arg>
+<arg>200</arg>
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<status status="PASS" start="2025-10-24T18:53:03.260390" elapsed="0.000000"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-10-24T18:53:03.262854" level="INFO">${json} = {}</msg>
+<var>${json}</var>
+<arg>${response.json()}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-10-24T18:53:03.262854" elapsed="0.000000"/>
+</kw>
+<if>
+<branch type="IF" condition="'${json}' == '{}'">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>[INFO] No fact available with max_length=${MAX_LENGTH}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-10-24T18:53:03.262854" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2025-10-24T18:53:03.262854" elapsed="0.000000"/>
+</branch>
+<branch type="ELSE">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>[DEBUG] Random fact returned: ${json['fact']}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" start="2025-10-24T18:53:03.262854" elapsed="0.000000"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>[DEBUG] Fact length: ${json['length']}, Max allowed: ${MAX_LENGTH}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" start="2025-10-24T18:53:03.262854" elapsed="0.000000"/>
+</kw>
+<kw name="Should Be True" owner="BuiltIn">
+<arg>${json['length']} &lt;= ${max_length}</arg>
+<arg>Random fact exceeds max_length</arg>
+<doc>Fails if the given condition is not true.</doc>
+<status status="NOT RUN" start="2025-10-24T18:53:03.262854" elapsed="0.000000"/>
+</kw>
+<status status="NOT RUN" start="2025-10-24T18:53:03.262854" elapsed="0.000000"/>
+</branch>
+<status status="PASS" start="2025-10-24T18:53:03.262854" elapsed="0.000000"/>
+</if>
+<status status="PASS" start="2025-10-24T18:53:01.904917" elapsed="1.360964"/>
+</test>
+<test id="s1-t4" name="Verify GET /facts returns 200" line="44">
+<kw name="Get Facts With Limit" owner="api_keywords">
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Session Exists" owner="RequestsLibrary">
+<arg>catfact</arg>
+<doc>Return True if the session has been already created</doc>
+<status status="PASS" start="2025-10-24T18:53:03.267068" elapsed="0.000000"/>
+</kw>
+<msg time="2025-10-24T18:53:03.267068" level="INFO">${exists} = True</msg>
+<var>${exists}</var>
+<arg>Session Exists</arg>
+<arg>catfact</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2025-10-24T18:53:03.267068" elapsed="0.000000"/>
+</kw>
+<if>
+<branch type="IF" condition="not ${exists}">
+<kw name="Create Session" owner="RequestsLibrary">
+<arg>catfact</arg>
+<arg>https://catfact.ninja</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="NOT RUN" start="2025-10-24T18:53:03.269075" elapsed="0.000000"/>
+</kw>
+<status status="NOT RUN" start="2025-10-24T18:53:03.267068" elapsed="0.002007"/>
+</branch>
+<status status="PASS" start="2025-10-24T18:53:03.267068" elapsed="0.002007"/>
+</if>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-10-24T18:53:03.269075" level="INFO">${params} = {'limit': '3'}</msg>
+<var>${params}</var>
+<arg>limit=${limit}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-10-24T18:53:03.269075" elapsed="0.000000"/>
+</kw>
+<kw name="GET" owner="RequestsLibrary">
+<msg time="2025-10-24T18:53:04.575813" level="INFO">GET Request : url=https://catfact.ninja/facts?limit=3 
+ path_url=/facts?limit=3 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg time="2025-10-24T18:53:04.575813" level="INFO">GET Response : url=https://catfact.ninja/facts?limit=3 
+ status=200, reason=OK 
+ headers={'Date': 'Fri, 24 Oct 2025 16:53:04 GMT', 'Content-Type': 'application/json', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Server': 'cloudflare', 'vary': 'Accept-Encoding', 'Cache-Control': 'no-cache, private', 'x-ratelimit-limit': '100', 'x-ratelimit-remaining': '50', 'access-control-allow-origin': '*', 'x-frame-options': 'SAMEORIGIN', 'x-xss-protection': '1; mode=block', 'x-content-type-options': 'nosniff', 'Content-Encoding': 'gzip', 'Nel': '{"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}', 'cf-cache-status': 'DYNAMIC', 'Report-To': '{"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=hrNBWq%2BJpoztk07FNlKUgJjfElf30LdKc%2BN0K8j1qemqfPcn%2B9u21Cg64v65WJbUGkGYP2tbkfOSceci7iS6u6SEhdcyQ%2B0w2b6XTDj0%2BbdNl7Uat%2F01%2BAI%3D"}]}', 'Set-Cookie': 'XSRF-TOKEN=eyJpdiI6IlFUbHlwRzY1NlhEWkMvZ1pwTnkxZkE9PSIsInZhbHVlIjoieVFGV3pHQ0FjS0FXNDlBR0xlY2pUZkNxaWxKTitCTUVISzZWUThWTVJNOEYvVXd3T09yK0Uyem11WlNYUkdrM25wMTFmaWFzaTg5bWhNdDc5M3VhbmdGZHM3NWU4dXg4UkdZZE9xN1FRelFwK1dWTXRqSjltSGFvdXkyeG1wNkYiLCJtYWMiOiJlOWY1NjlhNWRlZmIyN2I4M2IyNTY3MTU0YmZjNTc1MWJkMTViMjYxODY0NzQ4ODU2ZTgwOGNlZmQxNGRmMTk0IiwidGFnIjoiIn0%3D; SameSite=Lax; Secure; Path=/; Max-Age=7200; Expires=Fri, 24 Oct 2025 18:53:04 GMT, catfacts_session=eyJpdiI6Ikc1TDBwU09TRnNzUmxmYnBaZm9kRGc9PSIsInZhbHVlIjoiYlQzS2lKU0ljMzZ2S0IzdGFXd0NqQ0NpWTdDcFJZSDQ4bnR0NUJFeEdGK3JGYlJwaWFtdURoc3lWeVZWbGR4eTYwN0ZqSjQvVEpaMEM0cmQyVTFiS2owSXJIWTBOdW40clM2VENCTTd0aXMvN2JLbFNzSENwSmh6TlJQSzYzNFciLCJtYWMiOiIyNjMxOGNjYmJhZWRhY2YxMDI5Yjk3ZDZmNTViOTJhMDNiMzY3MGVhZjY5YzMzNWZkODJjNjk4YWFjODRlOWE3IiwidGFnIjoiIn0%3D; HttpOnly; SameSite=Lax; Secure; Path=/; Max-Age=7200; Expires=Fri, 24 Oct 2025 18:53:04 GMT, NBjZFiwPKcxmxSW8Flv3Brtbr5JLslGxhCe1BFsd=eyJpdiI6IlVac1dkYkYxL0Q1QUE4L1VLa0RiSEE9PSIsInZhbHVlIjoiaHdGUnhZcjZRSTRkTVpZU0srTjQrYTRLVWNLN1B6UXU3OVBMRlNpRFBOZWh2ZzR5VnV6VXZKak1adzh3SDE4Q2JSb2YyRlhRclFRTFVvL1dTbXBUR0JUaFBvd3dpQWlzUVVGdTZZa0RTUFpUb0NZTUNyamtrcnNhQlpkVzVxZ2JqS3JCSlV5N1FqeEt6R0xLQ3FCL0hLYUhlckhqb2krME5OdVAxbU1LaGNaSTE5NVo4WXU0SjZXOWNXUHFaRWFJSzM2UnRzVUdIdldKZVR1SlI3b1N2RVJ5ZGtDSFdsZXJNaXFPa0l2aUZjZXZzb1ArNlZEZDV4a0JBMUJGckdHZE5VK3VUdlMwZVdCbDg1aUk4S01QcHZOcC9Ub2lLcEx2aytNenp1Mm84SDFZY3lMR3pHOXZPNUxMdngwL3gyb09GNDhDVjk1ZjRTcHZxQ09uQUF4U1FyTS9iNlZkNG9VZ0ZqbFpWY0NKZWZJSmxQK2N4cXJIamxMN0hPNlhmdmVYIiwibWFjIjoiZWIwM2Y1M2M1Mzk1Zjc0MTNjMDE4YjZmOWQ1N2YxZjliOWMyMDFmMGFiMDY3OTQ5ZTBkOWIyOTYyNDNmOGM4OSIsInRhZyI6IiJ9; HttpOnly; SameSite=Lax; Secure; Path=/; Max-Age=7200; Expires=Fri, 24 Oct 2025 18:53:04 GMT', 'CF-RAY': '993afcfe0c2ac211-SIN', 'alt-svc': 'h3=":443"; ma=86400'} 
+ body={"current_page":1,"data":[{"fact":"Unlike dogs, cats do not have a sweet tooth. Scientists believe this is due to a mutation in a key taste receptor.","length":114},{"fact":"When a cat chases its prey, it keeps its head level. Dogs and humans bob their heads up and down.","length":97},{"fact":"The technical term for a cat\u2019s hairball is a \u201cbezoar.\u201d","length":54}],"first_page_url":"https:\/\/catfact.ninja\/facts?page=1","from":1,"last_page":111,"last_page_url":"https:\/\/catfact.ninja\/facts?page=111","links":[{"url":null,"label":"Previous","active":false},{"url":"https:\/\/catfact.ninja\/facts?page=1","label":"1","active":true},{"url":"https:\/\/catfact.ninja\/facts?page=2","label":"2","active":false},{"url":"https:\/\/catfact.ninja\/facts?page=3","label":"3","active":false},{"url":"https:\/\/catfact.ninja\/facts?page=4","label":"4","active":false},{"url":"https:\/\/catfact.ninja\/facts?page=5","label":"5","active":false},{"url":"https:\/\/catfact.ninja\/facts?page=6","label":"6","active":false},{"url":"https:\/\/catfact.ninja\/facts?page=7","label":"7","active":false},{"url":"https:\/\/catfact.ninja\/facts?page=8","label":"8","active":false},{"url":"https:\/\/catfact.ninja\/facts?page=9","label":"9","active":false},{"url":"https:\/\/catfact.ninja\/facts?page=10","label":"10","active":false},{"url":null,"label":"...","active":false},{"url":"https:\/\/catfact.ninja\/facts?page=110","label":"110","active":false},{"url":"https:\/\/catfact.ninja\/facts?page=111","label":"111","active":false},{"url":"https:\/\/catfact.ninja\/facts?page=2","label":"Next","active":false}],"next_page_url":"https:\/\/catfact.ninja\/facts?page=2","path":"https:\/\/catfact.ninja\/facts","per_page":3,"prev_page_url":null,"to":3,"total":332} 
+ </msg>
+<msg time="2025-10-24T18:53:04.575813" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>https://catfact.ninja/facts</arg>
+<arg>params=${params}</arg>
+<doc>Sends a GET request.</doc>
+<status status="PASS" start="2025-10-24T18:53:03.269075" elapsed="1.306738"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>\n[REQUEST] GET /facts?limit=${limit}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-10-24T18:53:04.575813" elapsed="0.000000"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Status: ${response.status_code}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-10-24T18:53:04.575813" elapsed="0.002139"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Body: ${response.text}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-10-24T18:53:04.577952" elapsed="0.002204"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-10-24T18:53:04.580156" level="INFO">{"current_page":1,"data":[{"fact":"Unlike dogs, cats do not have a sweet tooth. Scientists believe this is due to a mutation in a key taste receptor.","length":114},{"fact":"When a cat chases its prey, it keeps its head level. Dogs and humans bob their heads up and down.","length":97},{"fact":"The technical term for a cat\u2019s hairball is a \u201cbezoar.\u201d","length":54}],"first_page_url":"https:\/\/catfact.ninja\/facts?page=1","from":1,"last_page":111,"last_page_url":"https:\/\/catfact.ninja\/facts?page=111","links":[{"url":null,"label":"Previous","active":false},{"url":"https:\/\/catfact.ninja\/facts?page=1","label":"1","active":true},{"url":"https:\/\/catfact.ninja\/facts?page=2","label":"2","active":false},{"url":"https:\/\/catfact.ninja\/facts?page=3","label":"3","active":false},{"url":"https:\/\/catfact.ninja\/facts?page=4","label":"4","active":false},{"url":"https:\/\/catfact.ninja\/facts?page=5","label":"5","active":false},{"url":"https:\/\/catfact.ninja\/facts?page=6","label":"6","active":false},{"url":"https:\/\/catfact.ninja\/facts?page=7","label":"7","active":false},{"url":"https:\/\/catfact.ninja\/facts?page=8","label":"8","active":false},{"url":"https:\/\/catfact.ninja\/facts?page=9","label":"9","active":false},{"url":"https:\/\/catfact.ninja\/facts?page=10","label":"10","active":false},{"url":null,"label":"...","active":false},{"url":"https:\/\/catfact.ninja\/facts?page=110","label":"110","active":false},{"url":"https:\/\/catfact.ninja\/facts?page=111","label":"111","active":false},{"url":"https:\/\/catfact.ninja\/facts?page=2","label":"Next","active":false}],"next_page_url":"https:\/\/catfact.ninja\/facts?page=2","path":"https:\/\/catfact.ninja\/facts","per_page":3,"prev_page_url":null,"to":3,"total":332}</msg>
+<arg>${response.text}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-10-24T18:53:04.580156" elapsed="0.000000"/>
+</kw>
+<return>
+<value>${response}</value>
+<status status="PASS" start="2025-10-24T18:53:04.580156" elapsed="0.000000"/>
+</return>
+<msg time="2025-10-24T18:53:04.580156" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>${LIMIT}</arg>
+<doc>Perform GET request to /facts endpoint with a limit</doc>
+<status status="PASS" start="2025-10-24T18:53:03.267068" elapsed="1.313088"/>
+</kw>
+<kw name="Should Be Equal As Integers" owner="BuiltIn">
+<msg time="2025-10-24T18:53:04.580156" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${response.status_code}</arg>
+<arg>200</arg>
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<status status="PASS" start="2025-10-24T18:53:04.580156" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2025-10-24T18:53:03.265881" elapsed="1.314275"/>
+</test>
+<test id="s1-t5" name="Verify /facts items structure" line="48">
+<kw name="Get Facts With Limit" owner="api_keywords">
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Session Exists" owner="RequestsLibrary">
+<arg>catfact</arg>
+<doc>Return True if the session has been already created</doc>
+<status status="PASS" start="2025-10-24T18:53:04.584480" elapsed="0.000000"/>
+</kw>
+<msg time="2025-10-24T18:53:04.584480" level="INFO">${exists} = True</msg>
+<var>${exists}</var>
+<arg>Session Exists</arg>
+<arg>catfact</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2025-10-24T18:53:04.584480" elapsed="0.000000"/>
+</kw>
+<if>
+<branch type="IF" condition="not ${exists}">
+<kw name="Create Session" owner="RequestsLibrary">
+<arg>catfact</arg>
+<arg>https://catfact.ninja</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="NOT RUN" start="2025-10-24T18:53:04.584480" elapsed="0.000000"/>
+</kw>
+<status status="NOT RUN" start="2025-10-24T18:53:04.584480" elapsed="0.000000"/>
+</branch>
+<status status="PASS" start="2025-10-24T18:53:04.584480" elapsed="0.000000"/>
+</if>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-10-24T18:53:04.584480" level="INFO">${params} = {'limit': '3'}</msg>
+<var>${params}</var>
+<arg>limit=${limit}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-10-24T18:53:04.584480" elapsed="0.000000"/>
+</kw>
+<kw name="GET" owner="RequestsLibrary">
+<msg time="2025-10-24T18:53:06.523479" level="INFO">GET Request : url=https://catfact.ninja/facts?limit=3 
+ path_url=/facts?limit=3 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg time="2025-10-24T18:53:06.523479" level="INFO">GET Response : url=https://catfact.ninja/facts?limit=3 
+ status=200, reason=OK 
+ headers={'Date': 'Fri, 24 Oct 2025 16:53:06 GMT', 'Content-Type': 'application/json', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Server': 'cloudflare', 'vary': 'Accept-Encoding', 'Cache-Control': 'no-cache, private', 'x-ratelimit-limit': '100', 'x-ratelimit-remaining': '91', 'access-control-allow-origin': '*', 'x-frame-options': 'SAMEORIGIN', 'x-xss-protection': '1; mode=block', 'x-content-type-options': 'nosniff', 'Content-Encoding': 'gzip', 'Nel': '{"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}', 'cf-cache-status': 'DYNAMIC', 'Report-To': '{"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=AC7CbJegg0CHnjLIMfzTE6UTWPMMy9kkgLxMg2KP06qKjQgkE9NC%2FoRA1xjDVi34g6JcvLR3qMmjtteT6UFEnrED5LzZT6kS1TmvgyhtI%2FKiyLHYyjyThkQ%3D"}]}', 'Set-Cookie': 'XSRF-TOKEN=eyJpdiI6IjE3d3B6M2Y3YTV0T2NLcFhtdWdEQXc9PSIsInZhbHVlIjoiTm5QNmZPa0J6WFpVMStLSUJpNlY4VjdOMmtPRk9XOEJSTmdHTmxOdjRCdTJrN00wek1BRzc2STBKZ09icGdOajZQcUxXcW16eGxLbVp3cjZ1L0hiZjAxalA3NVp5eGMvR0FaRmcwS2g1R0tjUkc5bWdMM25WN2RGWWJaZXJtUjQiLCJtYWMiOiIzNDYwZWVmNGViZGYyYjg4ZjkwOWQzNDg3ODMzNWU1MjI0MzkyODQwYzVmZDIxZmZjMWFlODMwYjBmYTljNTVmIiwidGFnIjoiIn0%3D; SameSite=Lax; Secure; Path=/; Max-Age=7200; Expires=Fri, 24 Oct 2025 18:53:06 GMT, catfacts_session=eyJpdiI6InpDajZKbDRtTHVYbEEwdG9veGtLMEE9PSIsInZhbHVlIjoiUkpuVTU3YnM4djhFRVZadnp4bHc0K3lmRzJzbXo0NFIxWS9FN0NMNHZMRmg2TFplNUtkaTA5bjlWUHNDOG5HYUZ4azJsczZYM09XZTVHRVlnb1dsbU9JUWhyc1Y2RjQvdHR2Y1VER2VYWGR6aUYzMlZqTkhtTVF2WjV3YU9OWUoiLCJtYWMiOiI0OTAxZTA3ODg1ZWY2MWUyMDRiOGU0ZmRhNzk5Nzc1OTYxNzFiYTI5MWNjNGE1MjBmMjViNTMyYTQxNzU5MDc5IiwidGFnIjoiIn0%3D; HttpOnly; SameSite=Lax; Secure; Path=/; Max-Age=7200; Expires=Fri, 24 Oct 2025 18:53:06 GMT, D8ePd8UKrC1aa9rp8pgcWtxGnbff9IGEzyNjjhiL=eyJpdiI6IlU4WjNnZllQaXk3MnUzWTVRd2tjZ0E9PSIsInZhbHVlIjoiYXc1R3JqUHZtejZGdGdDckdlN3oyWnBSQVlYeE9VQVBYKzRaNy9WM3I2TmUyelU0THEwRENPZUpIN1JuZUtXV1I5d3dXWWZaSzJvUXRXTUdBd2hxWXRNWWMrRmN4bjYyd3F3TXE3SUFpNjg5a1l6RXlvcWk0T1I4YkdPVHlVK2srWlc4M3RWRTAwems1K2JHK3ZjRytKdXo0cGIwbEw5UDJWNzBMU1pnanJJZU5BaGl6eHJjK2RGLzZzWlZkYkFGZ2VIVFVRUk8yRU10b255RmVLUU1tZDc5UXpPVlhzbDRzSEs2TVJqcGxJUm96ZTN6RTBtcUFGQlFhaFpoUlN0RW5zaC9FQmkxVG81OHhVVUNVcXN1K0hwdHBYQ2p6Z1orRFZ1TWEwTSt2ZjI0SGQ4ZjhUeFNXZFd4T2dORWJLTWEzUmdBdXFHd3lMMVpzdGxxdzFONmI3YkkzWVdmZkMvNDlxQnVCQTZCbGtENUZ3ZGRSRGlzYXM3ZGsxNlk0eXlaIiwibWFjIjoiZWZkZmI0Mjc1ZDdjNDAxZWNlZjFhMmFjYzk1ZDA5OGNmY2EyMzc2NDYyMGRiODZkNGY1OGMyZmU1YmNiNzcyMiIsInRhZyI6IiJ9; HttpOnly; SameSite=Lax; Secure; Path=/; Max-Age=7200; Expires=Fri, 24 Oct 2025 18:53:06 GMT', 'CF-RAY': '993afd088b92447c-SIN', 'alt-svc': 'h3=":443"; ma=86400'} 
+ body={"current_page":1,"data":[{"fact":"Unlike dogs, cats do not have a sweet tooth. Scientists believe this is due to a mutation in a key taste receptor.","length":114},{"fact":"When a cat chases its prey, it keeps its head level. Dogs and humans bob their heads up and down.","length":97},{"fact":"The technical term for a cat\u2019s hairball is a \u201cbezoar.\u201d","length":54}],"first_page_url":"https:\/\/catfact.ninja\/facts?page=1","from":1,"last_page":111,"last_page_url":"https:\/\/catfact.ninja\/facts?page=111","links":[{"url":null,"label":"Previous","active":false},{"url":"https:\/\/catfact.ninja\/facts?page=1","label":"1","active":true},{"url":"https:\/\/catfact.ninja\/facts?page=2","label":"2","active":false},{"url":"https:\/\/catfact.ninja\/facts?page=3","label":"3","active":false},{"url":"https:\/\/catfact.ninja\/facts?page=4","label":"4","active":false},{"url":"https:\/\/catfact.ninja\/facts?page=5","label":"5","active":false},{"url":"https:\/\/catfact.ninja\/facts?page=6","label":"6","active":false},{"url":"https:\/\/catfact.ninja\/facts?page=7","label":"7","active":false},{"url":"https:\/\/catfact.ninja\/facts?page=8","label":"8","active":false},{"url":"https:\/\/catfact.ninja\/facts?page=9","label":"9","active":false},{"url":"https:\/\/catfact.ninja\/facts?page=10","label":"10","active":false},{"url":null,"label":"...","active":false},{"url":"https:\/\/catfact.ninja\/facts?page=110","label":"110","active":false},{"url":"https:\/\/catfact.ninja\/facts?page=111","label":"111","active":false},{"url":"https:\/\/catfact.ninja\/facts?page=2","label":"Next","active":false}],"next_page_url":"https:\/\/catfact.ninja\/facts?page=2","path":"https:\/\/catfact.ninja\/facts","per_page":3,"prev_page_url":null,"to":3,"total":332} 
+ </msg>
+<msg time="2025-10-24T18:53:06.523479" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>https://catfact.ninja/facts</arg>
+<arg>params=${params}</arg>
+<doc>Sends a GET request.</doc>
+<status status="PASS" start="2025-10-24T18:53:04.584480" elapsed="1.938999"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>\n[REQUEST] GET /facts?limit=${limit}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-10-24T18:53:06.523479" elapsed="0.000000"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Status: ${response.status_code}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-10-24T18:53:06.523479" elapsed="0.000000"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Body: ${response.text}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-10-24T18:53:06.523479" elapsed="0.000000"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-10-24T18:53:06.523479" level="INFO">{"current_page":1,"data":[{"fact":"Unlike dogs, cats do not have a sweet tooth. Scientists believe this is due to a mutation in a key taste receptor.","length":114},{"fact":"When a cat chases its prey, it keeps its head level. Dogs and humans bob their heads up and down.","length":97},{"fact":"The technical term for a cat\u2019s hairball is a \u201cbezoar.\u201d","length":54}],"first_page_url":"https:\/\/catfact.ninja\/facts?page=1","from":1,"last_page":111,"last_page_url":"https:\/\/catfact.ninja\/facts?page=111","links":[{"url":null,"label":"Previous","active":false},{"url":"https:\/\/catfact.ninja\/facts?page=1","label":"1","active":true},{"url":"https:\/\/catfact.ninja\/facts?page=2","label":"2","active":false},{"url":"https:\/\/catfact.ninja\/facts?page=3","label":"3","active":false},{"url":"https:\/\/catfact.ninja\/facts?page=4","label":"4","active":false},{"url":"https:\/\/catfact.ninja\/facts?page=5","label":"5","active":false},{"url":"https:\/\/catfact.ninja\/facts?page=6","label":"6","active":false},{"url":"https:\/\/catfact.ninja\/facts?page=7","label":"7","active":false},{"url":"https:\/\/catfact.ninja\/facts?page=8","label":"8","active":false},{"url":"https:\/\/catfact.ninja\/facts?page=9","label":"9","active":false},{"url":"https:\/\/catfact.ninja\/facts?page=10","label":"10","active":false},{"url":null,"label":"...","active":false},{"url":"https:\/\/catfact.ninja\/facts?page=110","label":"110","active":false},{"url":"https:\/\/catfact.ninja\/facts?page=111","label":"111","active":false},{"url":"https:\/\/catfact.ninja\/facts?page=2","label":"Next","active":false}],"next_page_url":"https:\/\/catfact.ninja\/facts?page=2","path":"https:\/\/catfact.ninja\/facts","per_page":3,"prev_page_url":null,"to":3,"total":332}</msg>
+<arg>${response.text}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-10-24T18:53:06.523479" elapsed="0.000000"/>
+</kw>
+<return>
+<value>${response}</value>
+<status status="PASS" start="2025-10-24T18:53:06.523479" elapsed="0.000000"/>
+</return>
+<msg time="2025-10-24T18:53:06.523479" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>3</arg>
+<doc>Perform GET request to /facts endpoint with a limit</doc>
+<status status="PASS" start="2025-10-24T18:53:04.584480" elapsed="1.938999"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-10-24T18:53:06.523479" level="INFO">${body} = {'current_page': 1, 'data': [{'fact': 'Unlike dogs, cats do not have a sweet tooth. Scientists believe this is due to a mutation in a key taste receptor.', 'length': 114}, {'fact': 'When a cat chases ...</msg>
+<var>${body}</var>
+<arg>${response.json()}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-10-24T18:53:06.523479" elapsed="0.000000"/>
+</kw>
+<for flavor="IN">
+<iter>
+<kw name="Validate Cat Fact Schema" owner="api_keywords">
+<kw name="Dictionary Should Contain Key" owner="Collections">
+<arg>${item}</arg>
+<arg>fact</arg>
+<doc>Fails if ``key`` is not found from ``dictionary``.</doc>
+<status status="PASS" start="2025-10-24T18:53:06.523479" elapsed="0.000000"/>
+</kw>
+<kw name="Dictionary Should Contain Key" owner="Collections">
+<arg>${item}</arg>
+<arg>length</arg>
+<doc>Fails if ``key`` is not found from ``dictionary``.</doc>
+<status status="PASS" start="2025-10-24T18:53:06.523479" elapsed="0.000000"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Validating that 'fact' is a string</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-10-24T18:53:06.523479" elapsed="0.010586"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-10-24T18:53:06.534065" level="INFO">${fact} = Unlike dogs, cats do not have a sweet tooth. Scientists believe this is due to a mutation in a key taste receptor.</msg>
+<var>${fact}</var>
+<arg>${item['fact']}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-10-24T18:53:06.534065" elapsed="0.000000"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-10-24T18:53:06.534065" level="INFO">${is_str} = True</msg>
+<var>${is_str}</var>
+<arg>isinstance($fact, str)</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-10-24T18:53:06.534065" elapsed="0.000000"/>
+</kw>
+<kw name="Should Be True" owner="BuiltIn">
+<arg>${is_str}</arg>
+<doc>Fails if the given condition is not true.</doc>
+<status status="PASS" start="2025-10-24T18:53:06.534065" elapsed="0.000000"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Validating that 'length' is an integer</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-10-24T18:53:06.535875" elapsed="0.000000"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-10-24T18:53:06.535875" level="INFO">${length} = 114</msg>
+<var>${length}</var>
+<arg>${item['length']}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-10-24T18:53:06.535875" elapsed="0.000000"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-10-24T18:53:06.535875" level="INFO">${is_int} = True</msg>
+<var>${is_int}</var>
+<arg>isinstance($length, int)</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-10-24T18:53:06.535875" elapsed="0.000000"/>
+</kw>
+<kw name="Should Be True" owner="BuiltIn">
+<arg>${is_int}</arg>
+<doc>Fails if the given condition is not true.</doc>
+<status status="PASS" start="2025-10-24T18:53:06.535875" elapsed="0.001524"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Validating that 'length' matches actual fact length</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-10-24T18:53:06.537399" elapsed="0.000000"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-10-24T18:53:06.538476" level="INFO">${fact_len} = 114</msg>
+<var>${fact_len}</var>
+<arg>len($fact)</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-10-24T18:53:06.537399" elapsed="0.001077"/>
+</kw>
+<kw name="Should Be Equal As Integers" owner="BuiltIn">
+<arg>${length}</arg>
+<arg>${fact_len}</arg>
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<status status="PASS" start="2025-10-24T18:53:06.538476" elapsed="0.000000"/>
+</kw>
+<arg>${item}</arg>
+<status status="PASS" start="2025-10-24T18:53:06.523479" elapsed="0.014997"/>
+</kw>
+<var name="${item}">{'fact': 'Unlike dogs, cats do not have a sweet tooth. Scientists believe this is due to a mutation in a key taste receptor.', 'length': 114}</var>
+<status status="PASS" start="2025-10-24T18:53:06.523479" elapsed="0.014997"/>
+</iter>
+<iter>
+<kw name="Validate Cat Fact Schema" owner="api_keywords">
+<kw name="Dictionary Should Contain Key" owner="Collections">
+<arg>${item}</arg>
+<arg>fact</arg>
+<doc>Fails if ``key`` is not found from ``dictionary``.</doc>
+<status status="PASS" start="2025-10-24T18:53:06.538476" elapsed="0.000000"/>
+</kw>
+<kw name="Dictionary Should Contain Key" owner="Collections">
+<arg>${item}</arg>
+<arg>length</arg>
+<doc>Fails if ``key`` is not found from ``dictionary``.</doc>
+<status status="PASS" start="2025-10-24T18:53:06.540481" elapsed="0.000000"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Validating that 'fact' is a string</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-10-24T18:53:06.540481" elapsed="0.000000"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-10-24T18:53:06.540481" level="INFO">${fact} = When a cat chases its prey, it keeps its head level. Dogs and humans bob their heads up and down.</msg>
+<var>${fact}</var>
+<arg>${item['fact']}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-10-24T18:53:06.540481" elapsed="0.000000"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-10-24T18:53:06.540481" level="INFO">${is_str} = True</msg>
+<var>${is_str}</var>
+<arg>isinstance($fact, str)</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-10-24T18:53:06.540481" elapsed="0.000000"/>
+</kw>
+<kw name="Should Be True" owner="BuiltIn">
+<arg>${is_str}</arg>
+<doc>Fails if the given condition is not true.</doc>
+<status status="PASS" start="2025-10-24T18:53:06.540481" elapsed="0.000000"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Validating that 'length' is an integer</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-10-24T18:53:06.540481" elapsed="0.000000"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-10-24T18:53:06.540481" level="INFO">${length} = 97</msg>
+<var>${length}</var>
+<arg>${item['length']}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-10-24T18:53:06.540481" elapsed="0.000000"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-10-24T18:53:06.540481" level="INFO">${is_int} = True</msg>
+<var>${is_int}</var>
+<arg>isinstance($length, int)</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-10-24T18:53:06.540481" elapsed="0.000000"/>
+</kw>
+<kw name="Should Be True" owner="BuiltIn">
+<arg>${is_int}</arg>
+<doc>Fails if the given condition is not true.</doc>
+<status status="PASS" start="2025-10-24T18:53:06.540481" elapsed="0.000000"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Validating that 'length' matches actual fact length</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-10-24T18:53:06.540481" elapsed="0.000000"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-10-24T18:53:06.540481" level="INFO">${fact_len} = 97</msg>
+<var>${fact_len}</var>
+<arg>len($fact)</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-10-24T18:53:06.540481" elapsed="0.000000"/>
+</kw>
+<kw name="Should Be Equal As Integers" owner="BuiltIn">
+<arg>${length}</arg>
+<arg>${fact_len}</arg>
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<status status="PASS" start="2025-10-24T18:53:06.540481" elapsed="0.000000"/>
+</kw>
+<arg>${item}</arg>
+<status status="PASS" start="2025-10-24T18:53:06.538476" elapsed="0.002005"/>
+</kw>
+<var name="${item}">{'fact': 'When a cat chases its prey, it keeps its head level. Dogs and humans bob their heads up and down.', 'length': 97}</var>
+<status status="PASS" start="2025-10-24T18:53:06.538476" elapsed="0.002005"/>
+</iter>
+<iter>
+<kw name="Validate Cat Fact Schema" owner="api_keywords">
+<kw name="Dictionary Should Contain Key" owner="Collections">
+<arg>${item}</arg>
+<arg>fact</arg>
+<doc>Fails if ``key`` is not found from ``dictionary``.</doc>
+<status status="PASS" start="2025-10-24T18:53:06.540481" elapsed="0.000000"/>
+</kw>
+<kw name="Dictionary Should Contain Key" owner="Collections">
+<arg>${item}</arg>
+<arg>length</arg>
+<doc>Fails if ``key`` is not found from ``dictionary``.</doc>
+<status status="PASS" start="2025-10-24T18:53:06.540481" elapsed="0.000000"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Validating that 'fact' is a string</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-10-24T18:53:06.540481" elapsed="0.000000"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-10-24T18:53:06.540481" level="INFO">${fact} = The technical term for a cat’s hairball is a “bezoar.”</msg>
+<var>${fact}</var>
+<arg>${item['fact']}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-10-24T18:53:06.540481" elapsed="0.000000"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-10-24T18:53:06.540481" level="INFO">${is_str} = True</msg>
+<var>${is_str}</var>
+<arg>isinstance($fact, str)</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-10-24T18:53:06.540481" elapsed="0.000000"/>
+</kw>
+<kw name="Should Be True" owner="BuiltIn">
+<arg>${is_str}</arg>
+<doc>Fails if the given condition is not true.</doc>
+<status status="PASS" start="2025-10-24T18:53:06.540481" elapsed="0.000000"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Validating that 'length' is an integer</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-10-24T18:53:06.540481" elapsed="0.000000"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-10-24T18:53:06.540481" level="INFO">${length} = 54</msg>
+<var>${length}</var>
+<arg>${item['length']}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-10-24T18:53:06.540481" elapsed="0.000000"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-10-24T18:53:06.540481" level="INFO">${is_int} = True</msg>
+<var>${is_int}</var>
+<arg>isinstance($length, int)</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-10-24T18:53:06.540481" elapsed="0.000000"/>
+</kw>
+<kw name="Should Be True" owner="BuiltIn">
+<arg>${is_int}</arg>
+<doc>Fails if the given condition is not true.</doc>
+<status status="PASS" start="2025-10-24T18:53:06.540481" elapsed="0.000000"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Validating that 'length' matches actual fact length</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-10-24T18:53:06.540481" elapsed="0.000000"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-10-24T18:53:06.540481" level="INFO">${fact_len} = 54</msg>
+<var>${fact_len}</var>
+<arg>len($fact)</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-10-24T18:53:06.540481" elapsed="0.000000"/>
+</kw>
+<kw name="Should Be Equal As Integers" owner="BuiltIn">
+<arg>${length}</arg>
+<arg>${fact_len}</arg>
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<status status="PASS" start="2025-10-24T18:53:06.540481" elapsed="0.000000"/>
+</kw>
+<arg>${item}</arg>
+<status status="PASS" start="2025-10-24T18:53:06.540481" elapsed="0.000000"/>
+</kw>
+<var name="${item}">{'fact': 'The technical term for a cat’s hairball is a “bezoar.”', 'length': 54}</var>
+<status status="PASS" start="2025-10-24T18:53:06.540481" elapsed="0.000000"/>
+</iter>
+<var>${item}</var>
+<value>@{body['data']}</value>
+<status status="PASS" start="2025-10-24T18:53:06.523479" elapsed="0.017002"/>
+</for>
+<status status="PASS" start="2025-10-24T18:53:04.580156" elapsed="1.960325"/>
+</test>
+<test id="s1-t6" name="Verify /facts with limit parameter" line="55">
+<kw name="Get Facts With Limit" owner="api_keywords">
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Session Exists" owner="RequestsLibrary">
+<arg>catfact</arg>
+<doc>Return True if the session has been already created</doc>
+<status status="PASS" start="2025-10-24T18:53:06.540481" elapsed="0.000000"/>
+</kw>
+<msg time="2025-10-24T18:53:06.540481" level="INFO">${exists} = True</msg>
+<var>${exists}</var>
+<arg>Session Exists</arg>
+<arg>catfact</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2025-10-24T18:53:06.540481" elapsed="0.000000"/>
+</kw>
+<if>
+<branch type="IF" condition="not ${exists}">
+<kw name="Create Session" owner="RequestsLibrary">
+<arg>catfact</arg>
+<arg>https://catfact.ninja</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="NOT RUN" start="2025-10-24T18:53:06.540481" elapsed="0.000000"/>
+</kw>
+<status status="NOT RUN" start="2025-10-24T18:53:06.540481" elapsed="0.000000"/>
+</branch>
+<status status="PASS" start="2025-10-24T18:53:06.540481" elapsed="0.000000"/>
+</if>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-10-24T18:53:06.552615" level="INFO">${params} = {'limit': '3'}</msg>
+<var>${params}</var>
+<arg>limit=${limit}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-10-24T18:53:06.540481" elapsed="0.012134"/>
+</kw>
+<kw name="GET" owner="RequestsLibrary">
+<msg time="2025-10-24T18:53:08.086932" level="INFO">GET Request : url=https://catfact.ninja/facts?limit=3 
+ path_url=/facts?limit=3 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg time="2025-10-24T18:53:08.090483" level="INFO">GET Response : url=https://catfact.ninja/facts?limit=3 
+ status=200, reason=OK 
+ headers={'Date': 'Fri, 24 Oct 2025 16:53:08 GMT', 'Content-Type': 'application/json', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Server': 'cloudflare', 'vary': 'Accept-Encoding', 'Cache-Control': 'no-cache, private', 'x-ratelimit-limit': '100', 'x-ratelimit-remaining': '70', 'access-control-allow-origin': '*', 'x-frame-options': 'SAMEORIGIN', 'x-xss-protection': '1; mode=block', 'x-content-type-options': 'nosniff', 'Content-Encoding': 'gzip', 'Nel': '{"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}', 'cf-cache-status': 'DYNAMIC', 'Report-To': '{"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=pyNoX6Qt9sKk5wVxWtG2vdylZex8aaHQsP2OxBpQtbR2WBqYaL8K8YGt2TRfrv7%2B%2FTvpwVn7K5L7MfeKr%2B%2FJ%2FKlpd2p7td9d%2F1eNKobxa2oOxZQA7cwniEA%3D"}]}', 'Set-Cookie': 'XSRF-TOKEN=eyJpdiI6InhvYzdTM1RaVzc1T1ZjeFBmNkxWVHc9PSIsInZhbHVlIjoicUlZWnF1QXB0Z3MyWUp6Tk5LNzczcTBaVndlVk82ZzhkMWhNZjhiSEFVNFRxZ1dINkZJWVc3ZitVUkZ2NjhqamtJdk9MWW44dzBpb05ncWJiSUxEazhHT3lMeVVUb0ZhWU9QQ0F3bnA2OEdpdThPWGY1YjF6dFdmQkZycGw5dVQiLCJtYWMiOiI5ZTMyMmE2MGE4YTdjMTY1MDIwYWRlNjg4ODBmZmMwNzQ0N2M1YmM0MzI2MjFlOGE5ODVhZjkzZDNhYjhlOGU2IiwidGFnIjoiIn0%3D; SameSite=Lax; Secure; Path=/; Max-Age=7200; Expires=Fri, 24 Oct 2025 18:53:07 GMT, catfacts_session=eyJpdiI6IjdET1ZxRFlQVUt2YWgrbmwzOWl1eEE9PSIsInZhbHVlIjoibURXTW5DYXpTbVpPK2MzdVozUWpnNU52T0tjTzZKN0s5N0RpMWUwdjI3dTZ4a3lWelUzQWh4K2wxREFHNTlodk1VL1RQR0NEQ3VoYUNhUzMwRDJTZ3k3bUhMQWxnQXZPS1N1L3NxeVREVGcrVmlsNGtkS0E0RUF6YVhZa2dGLzUiLCJtYWMiOiJlMWIxZWY5NjFiOTAzOWEyN2FkZTlmZDcwMjYyNGI2OTI3ZTE4YTAyZjk2NzVmZTk4YTI4OWNlYTFiZWFhOGZhIiwidGFnIjoiIn0%3D; HttpOnly; SameSite=Lax; Secure; Path=/; Max-Age=7200; Expires=Fri, 24 Oct 2025 18:53:07 GMT, YijfMJ2NtExOaqQNim1Okacm3bbiA3uCsHOGFzXw=eyJpdiI6ImZUOE94Rk5OK1dmeng3dy8xbkVVTlE9PSIsInZhbHVlIjoiV1dFTEs2bTRIZUdMZWZLMEFmM3VyS2ZjMnpnTUhCNlhzR05PUjRTdHhpQm9SeCtvZTMxUGJleGh3QnJxb3h5SE54blFFV0FadjJWdVd2L2R1ancwUUlZRlowMzZ0TDlIc2h5cGNhVnRKLzNVNmNDNVRYcjdoUUM1V0NORkNtTFNxUDVMcWU0RWtMdVZ3ZEE3MkxnbE5xcTVrK3F0NDhwRjIxbkY0MTltWFFRNzV3b2ZOOC96ZUI4UlkvN2svc20xQzRRNCtrckpQclZ5QXdHM0tjVjdIWWZUQzdUWnhadVBDc0IwZ2JvSHF5N2szRWdNcXJTdzNaMzJ4UFRySEY0Q2hpOTNWR2NuK1U2ek9nd013M2w4ejdzR0d6VzNJWWx0dDQyc2NYenFDSmpyN0lUdnZ0OEkrQWZrOU12NHRZWmVUN2RqaEJ5YUh5SmVkbnBPeGVCdUc1dXl1eUQ2SlRLdG9xSDh6eVpXVXkwRnA0dmRsbHBRTitlQ2s1N1hjUi95IiwibWFjIjoiNGY3ZGJiZjVjNGY1YTkyOGU0MjBjMDdjOTkwNTNiYThkOTdhZDdjYTY2ZDdlN2M5NWNkNDhhNjUzNjNkZjcwZSIsInRhZyI6IiJ9; HttpOnly; SameSite=Lax; Secure; Path=/; Max-Age=7200; Expires=Fri, 24 Oct 2025 18:53:07 GMT', 'CF-RAY': '993afd122e91fd8b-SIN', 'alt-svc': 'h3=":443"; ma=86400'} 
+ body={"current_page":1,"data":[{"fact":"Unlike dogs, cats do not have a sweet tooth. Scientists believe this is due to a mutation in a key taste receptor.","length":114},{"fact":"When a cat chases its prey, it keeps its head level. Dogs and humans bob their heads up and down.","length":97},{"fact":"The technical term for a cat\u2019s hairball is a \u201cbezoar.\u201d","length":54}],"first_page_url":"https:\/\/catfact.ninja\/facts?page=1","from":1,"last_page":111,"last_page_url":"https:\/\/catfact.ninja\/facts?page=111","links":[{"url":null,"label":"Previous","active":false},{"url":"https:\/\/catfact.ninja\/facts?page=1","label":"1","active":true},{"url":"https:\/\/catfact.ninja\/facts?page=2","label":"2","active":false},{"url":"https:\/\/catfact.ninja\/facts?page=3","label":"3","active":false},{"url":"https:\/\/catfact.ninja\/facts?page=4","label":"4","active":false},{"url":"https:\/\/catfact.ninja\/facts?page=5","label":"5","active":false},{"url":"https:\/\/catfact.ninja\/facts?page=6","label":"6","active":false},{"url":"https:\/\/catfact.ninja\/facts?page=7","label":"7","active":false},{"url":"https:\/\/catfact.ninja\/facts?page=8","label":"8","active":false},{"url":"https:\/\/catfact.ninja\/facts?page=9","label":"9","active":false},{"url":"https:\/\/catfact.ninja\/facts?page=10","label":"10","active":false},{"url":null,"label":"...","active":false},{"url":"https:\/\/catfact.ninja\/facts?page=110","label":"110","active":false},{"url":"https:\/\/catfact.ninja\/facts?page=111","label":"111","active":false},{"url":"https:\/\/catfact.ninja\/facts?page=2","label":"Next","active":false}],"next_page_url":"https:\/\/catfact.ninja\/facts?page=2","path":"https:\/\/catfact.ninja\/facts","per_page":3,"prev_page_url":null,"to":3,"total":332} 
+ </msg>
+<msg time="2025-10-24T18:53:08.090483" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>https://catfact.ninja/facts</arg>
+<arg>params=${params}</arg>
+<doc>Sends a GET request.</doc>
+<status status="PASS" start="2025-10-24T18:53:06.552615" elapsed="1.537868"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>\n[REQUEST] GET /facts?limit=${limit}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-10-24T18:53:08.090483" elapsed="0.000000"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Status: ${response.status_code}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-10-24T18:53:08.090483" elapsed="0.000000"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Body: ${response.text}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-10-24T18:53:08.090483" elapsed="0.000000"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-10-24T18:53:08.090483" level="INFO">{"current_page":1,"data":[{"fact":"Unlike dogs, cats do not have a sweet tooth. Scientists believe this is due to a mutation in a key taste receptor.","length":114},{"fact":"When a cat chases its prey, it keeps its head level. Dogs and humans bob their heads up and down.","length":97},{"fact":"The technical term for a cat\u2019s hairball is a \u201cbezoar.\u201d","length":54}],"first_page_url":"https:\/\/catfact.ninja\/facts?page=1","from":1,"last_page":111,"last_page_url":"https:\/\/catfact.ninja\/facts?page=111","links":[{"url":null,"label":"Previous","active":false},{"url":"https:\/\/catfact.ninja\/facts?page=1","label":"1","active":true},{"url":"https:\/\/catfact.ninja\/facts?page=2","label":"2","active":false},{"url":"https:\/\/catfact.ninja\/facts?page=3","label":"3","active":false},{"url":"https:\/\/catfact.ninja\/facts?page=4","label":"4","active":false},{"url":"https:\/\/catfact.ninja\/facts?page=5","label":"5","active":false},{"url":"https:\/\/catfact.ninja\/facts?page=6","label":"6","active":false},{"url":"https:\/\/catfact.ninja\/facts?page=7","label":"7","active":false},{"url":"https:\/\/catfact.ninja\/facts?page=8","label":"8","active":false},{"url":"https:\/\/catfact.ninja\/facts?page=9","label":"9","active":false},{"url":"https:\/\/catfact.ninja\/facts?page=10","label":"10","active":false},{"url":null,"label":"...","active":false},{"url":"https:\/\/catfact.ninja\/facts?page=110","label":"110","active":false},{"url":"https:\/\/catfact.ninja\/facts?page=111","label":"111","active":false},{"url":"https:\/\/catfact.ninja\/facts?page=2","label":"Next","active":false}],"next_page_url":"https:\/\/catfact.ninja\/facts?page=2","path":"https:\/\/catfact.ninja\/facts","per_page":3,"prev_page_url":null,"to":3,"total":332}</msg>
+<arg>${response.text}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-10-24T18:53:08.090483" elapsed="0.000000"/>
+</kw>
+<return>
+<value>${response}</value>
+<status status="PASS" start="2025-10-24T18:53:08.090483" elapsed="0.000000"/>
+</return>
+<msg time="2025-10-24T18:53:08.090483" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>${LIMIT}</arg>
+<doc>Perform GET request to /facts endpoint with a limit</doc>
+<status status="PASS" start="2025-10-24T18:53:06.540481" elapsed="1.550002"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>\n[DEBUG] Status Code: ${response.status_code}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-10-24T18:53:08.090483" elapsed="0.000000"/>
+</kw>
+<kw name="Should Be Equal As Integers" owner="BuiltIn">
+<msg time="2025-10-24T18:53:08.090483" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${response.status_code}</arg>
+<arg>200</arg>
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<status status="PASS" start="2025-10-24T18:53:08.090483" elapsed="0.000000"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-10-24T18:53:08.090483" level="INFO">${json} = {'current_page': 1, 'data': [{'fact': 'Unlike dogs, cats do not have a sweet tooth. Scientists believe this is due to a mutation in a key taste receptor.', 'length': 114}, {'fact': 'When a cat chases ...</msg>
+<var>${json}</var>
+<arg>${response.json()}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-10-24T18:53:08.090483" elapsed="0.000000"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>[DEBUG] Full JSON: ${json}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-10-24T18:53:08.090483" elapsed="0.000000"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-10-24T18:53:08.090483" level="INFO">${data} = [{'fact': 'Unlike dogs, cats do not have a sweet tooth. Scientists believe this is due to a mutation in a key taste receptor.', 'length': 114}, {'fact': 'When a cat chases its prey, it keeps its head ...</msg>
+<var>${data}</var>
+<arg>${json['data']}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-10-24T18:53:08.090483" elapsed="0.000000"/>
+</kw>
+<kw name="Get Length" owner="BuiltIn">
+<msg time="2025-10-24T18:53:08.090483" level="INFO">Length is 3.</msg>
+<msg time="2025-10-24T18:53:08.090483" level="INFO">${data_length} = 3</msg>
+<var>${data_length}</var>
+<arg>${data}</arg>
+<doc>Returns and logs the length of the given item as an integer.</doc>
+<status status="PASS" start="2025-10-24T18:53:08.090483" elapsed="0.000000"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>[DEBUG] Number of facts returned: ${data_length}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-10-24T18:53:08.090483" elapsed="0.000000"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>[DEBUG] Facts: ${data}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-10-24T18:53:08.090483" elapsed="0.000000"/>
+</kw>
+<kw name="Should Be True" owner="BuiltIn">
+<arg>${data_length} &lt;= ${LIMIT}</arg>
+<arg>Returned more facts than limit</arg>
+<doc>Fails if the given condition is not true.</doc>
+<status status="PASS" start="2025-10-24T18:53:08.090483" elapsed="0.012371"/>
+</kw>
+<kw name="Dictionary Should Contain Key" owner="Collections">
+<arg>${json}</arg>
+<arg>total</arg>
+<doc>Fails if ``key`` is not found from ``dictionary``.</doc>
+<status status="PASS" start="2025-10-24T18:53:08.102854" elapsed="0.000520"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>[DEBUG] Total facts available: ${json['total']}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-10-24T18:53:08.103374" elapsed="0.000000"/>
+</kw>
+<kw name="Should Be True" owner="BuiltIn">
+<arg>${json['total']} &gt;= 0</arg>
+<doc>Fails if the given condition is not true.</doc>
+<status status="PASS" start="2025-10-24T18:53:08.103374" elapsed="0.000000"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>[DEBUG] Last page returned by API: ${json['per_page']}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-10-24T18:53:08.103374" elapsed="0.000000"/>
+</kw>
+<kw name="Dictionary Should Contain Key" owner="Collections">
+<arg>${json}</arg>
+<arg>per_page</arg>
+<doc>Fails if ``key`` is not found from ``dictionary``.</doc>
+<status status="PASS" start="2025-10-24T18:53:08.103374" elapsed="0.000000"/>
+</kw>
+<kw name="Should Be Equal As Integers" owner="BuiltIn">
+<msg time="2025-10-24T18:53:08.103374" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${json['per_page']}</arg>
+<arg>${limit}</arg>
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<status status="PASS" start="2025-10-24T18:53:08.103374" elapsed="0.000000"/>
+</kw>
+<kw name="Dictionary Should Contain Key" owner="Collections">
+<arg>${json}</arg>
+<arg>last_page</arg>
+<doc>Fails if ``key`` is not found from ``dictionary``.</doc>
+<status status="PASS" start="2025-10-24T18:53:08.103374" elapsed="0.000000"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>[DEBUG] Last page returned by API: ${json['last_page']}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-10-24T18:53:08.103374" elapsed="0.000000"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-10-24T18:53:08.103374" level="INFO">${expected_last_page} = 111</msg>
+<var>${expected_last_page}</var>
+<arg>-(-${json['total']} // ${limit})</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-10-24T18:53:08.103374" elapsed="0.000000"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>[DEBUG] Expected last page based on total and limit: ${expected_last_page}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-10-24T18:53:08.103374" elapsed="0.000000"/>
+</kw>
+<kw name="Should Be Equal As Integers" owner="BuiltIn">
+<arg>${json['last_page']}</arg>
+<arg>${expected_last_page}</arg>
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<status status="PASS" start="2025-10-24T18:53:08.103374" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2025-10-24T18:53:06.540481" elapsed="1.562893"/>
+</test>
+<test id="s1-t7" name="Verify /facts with max_length parameter" line="95">
+<kw name="Get Facts With Max Length" owner="api_keywords">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-10-24T18:53:08.103374" level="INFO">${params} = {'max_length': '4'}</msg>
+<var>${params}</var>
+<arg>max_length=${max_length}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-10-24T18:53:08.103374" elapsed="0.000000"/>
+</kw>
+<kw name="GET" owner="RequestsLibrary">
+<msg time="2025-10-24T18:53:09.850495" level="INFO">GET Request : url=https://catfact.ninja/facts?max_length=4 
+ path_url=/facts?max_length=4 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg time="2025-10-24T18:53:09.850495" level="INFO">GET Response : url=https://catfact.ninja/facts?max_length=4 
+ status=200, reason=OK 
+ headers={'Date': 'Fri, 24 Oct 2025 16:53:09 GMT', 'Content-Type': 'application/json', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Server': 'cloudflare', 'vary': 'Accept-Encoding', 'Cache-Control': 'no-cache, private', 'x-ratelimit-limit': '100', 'x-ratelimit-remaining': '81', 'access-control-allow-origin': '*', 'x-frame-options': 'SAMEORIGIN', 'x-xss-protection': '1; mode=block', 'x-content-type-options': 'nosniff', 'Content-Encoding': 'gzip', 'Nel': '{"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}', 'cf-cache-status': 'DYNAMIC', 'Report-To': '{"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=lOYCs2ZDex9RcHbA7Z3koGmWFnBxWW4F0no9yAKJy8ozSE2wvpfRmrKhbeimhi%2BijYjL2%2FlKQmKh575rSbQuOnPJMjhDx5bNUjJyhwQ721o0qtv5xKbJaqk%3D"}]}', 'Set-Cookie': 'XSRF-TOKEN=eyJpdiI6InBGbWZyQ0lHOERzN1NQaExiNm0xdkE9PSIsInZhbHVlIjoicHhocmFHMUtZa0hPeXR1akhVVklaSDlialZTK1UreFNEdFZJU2ZhVGI2L1BXajlkWlFxVjVHUXorRi90WmgzNVRQQmdZaEhVOWJBN0RvbmhKMDd4UURkajQyamlFZ3JXTURvcG1jNTVHWTRWd01WZlBabDBkRDF0SDBzblFrbDgiLCJtYWMiOiI1NmNhZWMxYTBlYmRkZmZmYTZlOTZmMmMxZDc4Nzc3ZGIxMWM0M2EzYjBkNjAzNTQyMTc3MGJhYmY3YTQzYTU2IiwidGFnIjoiIn0%3D; SameSite=Lax; Secure; Path=/; Max-Age=7200; Expires=Fri, 24 Oct 2025 18:53:09 GMT, catfacts_session=eyJpdiI6IlpIOWZlK215anZBQURhMmNLTUhvVUE9PSIsInZhbHVlIjoidFJFa1NFYkF0V2tPaWNzZ2NmWnBSTFVKc0J0cFU1ZE52VEdTdTBPUDdyZzZBODNZWDdxaHZFT0tobVNCV29PUWpJRFZOL0VCRmpZbW9pM1NsZ0V5UlFqMEg3b1loS3BMbFVGWGxCdHg5b3JGcXRQQlBPWkk2dUR5ZDJSbGFsN2EiLCJtYWMiOiI3NmM5Zjc5Yjc4Mzc2NDhjM2VkYzc2YmZkNWJkNjg3ZGE1OTk3MjM4OTFkMzZiMWM3NjVkMDgyMjRhODliNWZiIiwidGFnIjoiIn0%3D; HttpOnly; SameSite=Lax; Secure; Path=/; Max-Age=7200; Expires=Fri, 24 Oct 2025 18:53:09 GMT, SwHQyG3DIBqt1xhtbdE6sDixPD5IZiDts6qRA3RM=eyJpdiI6Imk0bURaREhxRmM4UVpJQlhQQ1pxZlE9PSIsInZhbHVlIjoiS2loZm5uc0lyWWZVWEc1M1B4TDVXOVhuelVGTUV5d2lqcEppNjVBTk4wcXJTL21DS1owTGFwckJKYzZNY3R6dmdKN3FSS0RFZmRyV2xDWGRZc2ljSTEwdlVNV3lMM2w1VFIzdWdUYi9LL3czNHM4RWs5WmIxVjRvRmF1VDR1M3l6MGxpR28venJjYVB1V09uSlFvdlE0emdGaDdSQlZiaFFqY0NadTB0dURDS2VGSGh1NlJQRnJOQXp0eFhDLzAxSEFpYURHb0pNV0hiS1pLb0E5dVVUcW0xdVRxamZNQU8wSVk1cm4vS3o1UHcvQVQ1VWRWckROTUN6SkhBMm5xYWZyTFl1VG1PSENqN0VGUWtZQUE5L0RnOTlEcTNVKzQ3UnFZZjdMajdzNFBsZVdoeXNNWlY2YmxxVUdGNnhmbEUvZTg4YjdQUTFhOERBNDFYZzlvTnlxdG1kT3cySVp0ZjY3aEFiRko5eEViU29rU2R3bHZiMHVOOTNVMi9rZ0NPZkJkNGtvUXBVSThjeDZBSnZYc3Y3Zz09IiwibWFjIjoiMTU4ZGMzMWU3YWJiZmIyMDgzMjYxYzE1ZDRlOGQ1MjM4ZTc1M2I3OWRiMjlhMDBkMDZkZDM3YTBhMjczMDcwMyIsInRhZyI6IiJ9; HttpOnly; SameSite=Lax; Secure; Path=/; Max-Age=7200; Expires=Fri, 24 Oct 2025 18:53:09 GMT', 'CF-RAY': '993afd1dee458319-SIN', 'alt-svc': 'h3=":443"; ma=86400'} 
+ body={"current_page":1,"data":[],"first_page_url":"https:\/\/catfact.ninja\/facts?page=1","from":null,"last_page":1,"last_page_url":"https:\/\/catfact.ninja\/facts?page=1","links":[{"url":null,"label":"Previous","active":false},{"url":"https:\/\/catfact.ninja\/facts?page=1","label":"1","active":true},{"url":null,"label":"Next","active":false}],"next_page_url":null,"path":"https:\/\/catfact.ninja\/facts","per_page":10,"prev_page_url":null,"to":null,"total":0} 
+ </msg>
+<msg time="2025-10-24T18:53:09.855577" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>https://catfact.ninja/facts</arg>
+<arg>params=${params}</arg>
+<doc>Sends a GET request.</doc>
+<status status="PASS" start="2025-10-24T18:53:08.103374" elapsed="1.752203"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>\n[DEBUG] GET /facts?max_length=${max_length}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-10-24T18:53:09.855577" elapsed="0.000000"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Status Code: ${response.status_code}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-10-24T18:53:09.855577" elapsed="0.000000"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Response Body: ${response.text}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-10-24T18:53:09.855577" elapsed="0.002163"/>
+</kw>
+<return>
+<value>${response}</value>
+<status status="PASS" start="2025-10-24T18:53:09.857740" elapsed="0.000000"/>
+</return>
+<msg time="2025-10-24T18:53:09.857740" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>${MAX_LENGTH}</arg>
+<doc>Perform GET request to /facts endpoint with max_length</doc>
+<status status="PASS" start="2025-10-24T18:53:08.103374" elapsed="1.754366"/>
+</kw>
+<kw name="Should Be Equal As Integers" owner="BuiltIn">
+<msg time="2025-10-24T18:53:09.857740" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${response.status_code}</arg>
+<arg>200</arg>
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<status status="PASS" start="2025-10-24T18:53:09.857740" elapsed="0.000000"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-10-24T18:53:09.857740" level="INFO">${json} = {'current_page': 1, 'data': [], 'first_page_url': 'https://catfact.ninja/facts?page=1', 'from': None, 'last_page': 1, 'last_page_url': 'https://catfact.ninja/facts?page=1', 'links': [{'url': None, 'la...</msg>
+<var>${json}</var>
+<arg>${response.json()}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-10-24T18:53:09.857740" elapsed="0.000000"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-10-24T18:53:09.860836" level="INFO">${data} = []</msg>
+<var>${data}</var>
+<arg>${json['data']}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-10-24T18:53:09.857740" elapsed="0.003096"/>
+</kw>
+<kw name="Get Length" owner="BuiltIn">
+<msg time="2025-10-24T18:53:09.860836" level="INFO">Length is 0.</msg>
+<msg time="2025-10-24T18:53:09.860836" level="INFO">${data_length} = 0</msg>
+<var>${data_length}</var>
+<arg>${data}</arg>
+<doc>Returns and logs the length of the given item as an integer.</doc>
+<status status="PASS" start="2025-10-24T18:53:09.860836" elapsed="0.000000"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>[DEBUG] Number of facts returned: ${data_length}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-10-24T18:53:09.860836" elapsed="0.000000"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>[DEBUG] Facts: ${data}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-10-24T18:53:09.860836" elapsed="0.000000"/>
+</kw>
+<for flavor="IN">
+<iter>
+<kw name="Should Be True" owner="BuiltIn">
+<arg>${item['length']} &lt;= ${MAX_LENGTH}</arg>
+<arg>Fact "${item['fact']}" exceeds max_length</arg>
+<doc>Fails if the given condition is not true.</doc>
+<status status="NOT RUN" start="2025-10-24T18:53:09.860836" elapsed="0.000000"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>[DEBUG] Fact OK (length ${item['length']}): ${item['fact']}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" start="2025-10-24T18:53:09.860836" elapsed="0.000000"/>
+</kw>
+<var name="${item}"/>
+<status status="NOT RUN" start="2025-10-24T18:53:09.860836" elapsed="0.000000"/>
+</iter>
+<var>${item}</var>
+<value>@{data}</value>
+<status status="NOT RUN" start="2025-10-24T18:53:09.860836" elapsed="0.000000"/>
+</for>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>[DEBUG] Per page: ${json['per_page']}, Total: ${json['total']}, Last page: ${json['last_page']}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-10-24T18:53:09.860836" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2025-10-24T18:53:08.103374" elapsed="1.757462"/>
+</test>
+<test id="s1-t8" name="Verify /facts with limit and max_length together" line="114">
+<kw name="Get Facts With Max_length and Limit" owner="api_keywords">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-10-24T18:53:09.860836" level="INFO">${params} = {}</msg>
+<var>${params}</var>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-10-24T18:53:09.860836" elapsed="0.000000"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Set To Dictionary" owner="Collections">
+<arg>${params}</arg>
+<arg>limit=${limit}</arg>
+<doc>Adds the given ``key_value_pairs`` and/or ``items`` to the ``dictionary``.</doc>
+<status status="PASS" start="2025-10-24T18:53:09.860836" elapsed="0.000000"/>
+</kw>
+<arg>${limit} != None</arg>
+<arg>Set To Dictionary</arg>
+<arg>${params}</arg>
+<arg>limit=${limit}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-10-24T18:53:09.860836" elapsed="0.000000"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Set To Dictionary" owner="Collections">
+<arg>${params}</arg>
+<arg>max_length=${max_length}</arg>
+<doc>Adds the given ``key_value_pairs`` and/or ``items`` to the ``dictionary``.</doc>
+<status status="PASS" start="2025-10-24T18:53:09.860836" elapsed="0.000000"/>
+</kw>
+<arg>${max_length} != None</arg>
+<arg>Set To Dictionary</arg>
+<arg>${params}</arg>
+<arg>max_length=${max_length}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-10-24T18:53:09.860836" elapsed="0.000000"/>
+</kw>
+<kw name="GET" owner="RequestsLibrary">
+<msg time="2025-10-24T18:53:11.103558" level="INFO">GET Request : url=https://catfact.ninja/facts?limit=3&amp;max_length=4 
+ path_url=/facts?limit=3&amp;max_length=4 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg time="2025-10-24T18:53:11.103558" level="INFO">GET Response : url=https://catfact.ninja/facts?limit=3&amp;max_length=4 
+ status=200, reason=OK 
+ headers={'Date': 'Fri, 24 Oct 2025 16:53:11 GMT', 'Content-Type': 'application/json', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Server': 'cloudflare', 'vary': 'Accept-Encoding', 'Cache-Control': 'no-cache, private', 'x-ratelimit-limit': '100', 'x-ratelimit-remaining': '45', 'access-control-allow-origin': '*', 'x-frame-options': 'SAMEORIGIN', 'x-xss-protection': '1; mode=block', 'x-content-type-options': 'nosniff', 'Content-Encoding': 'gzip', 'Nel': '{"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}', 'cf-cache-status': 'DYNAMIC', 'Report-To': '{"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=VcL0faQuBKtcQPIlfCnbMqnPJeK8sd1qplx%2BYbTb3LVt%2FmOVEpmLWnemzP12j%2BL%2B9ch9kFGrA%2BZ5Veta58vqUQdYdW3OQMXzlkm63YtTo3Y0r2O%2FvGNhKRk%3D"}]}', 'Set-Cookie': 'XSRF-TOKEN=eyJpdiI6Ijg0VlBvT0tUd0FBNUdRcUt3Ry95MVE9PSIsInZhbHVlIjoiM3ZzTER6TG9RUHlBdzNwYnZmL01rMjdHNGJiMk9pbnlyU1RIMHQ1eDgyY04xajk2MnBwb3psUml1WUhLdVREekRJWnE1V1pBbW4wOGFxdUtEZnFuQTBnYzdRR0dEMGI0R1I4YWFHYlQ1RzBvSW5sWmp1aElleWp5MFVmY3RMcDAiLCJtYWMiOiI4NWQ2N2Y4YzVjYWE2YzBmNjE4ZDgwY2NiNTNhYmE4ZGVlYzI4YmVkZmFkZDRkZjFkZTg5ZjI5MzBjMmYwYjQyIiwidGFnIjoiIn0%3D; SameSite=Lax; Secure; Path=/; Max-Age=7200; Expires=Fri, 24 Oct 2025 18:53:11 GMT, catfacts_session=eyJpdiI6IndFQ0RRT0ZuVCt2SzRDSWYxb2JTQ0E9PSIsInZhbHVlIjoiVHYweFNBZmZicGlXMzNCNGRxelhBeVYwSVRuL09Qb21laEc0dEdMWnZzVm5odlBnZ2pweW9vWm9FS1VjN3NlMkJSWjBDbUVlVTlXL3RpeDVRYS9LQVppalRhQmR1Ym5KRWFITzV2L3RweTQ4VHBQTWJHVWJPcUZQUmtuRXJsL0giLCJtYWMiOiJhYjg1ZGRjNDI0OGYyNWU3MDM4ZDJjMGYzZmViNmI2MWQ2ZmZhOTA1YmMyNGE2MzE3NjU4NmJkMmExMmI0MmQ0IiwidGFnIjoiIn0%3D; HttpOnly; SameSite=Lax; Secure; Path=/; Max-Age=7200; Expires=Fri, 24 Oct 2025 18:53:11 GMT, mre5VoLfYlBr3RgvcO8llyfML5JFi12Og8fV0VMM=eyJpdiI6IlBDUWl2QzlWaGVweXA2MDZoS0FIQUE9PSIsInZhbHVlIjoibncydG9wQitFUWZvYXVkTDl3Z3NIVmpLMnZBVE9SaUsvckFnM2RadmRkSjVoaUJ5dGcvQ1l1QkhGZGNmcEhSWWgvSVRJYXA4QWJhZ2txRDB5ZjNWelFEcTlRK1A0d0pQQThQNk4wcHhaZXQ2L0hocDBPa1ZzejNQU0l6UjhUUUEvZVRub3NaakZMd0VOTmdNSUNMYU90U2IxWDdHQVU3MEtXaDUrU1JFVTA1cXJIV2M1cHhodzIxSTlXQXA3cFJoNkJpK2J1R3ljWStZLzV2d2thQ3hIQmdkMGtQVkE4RGFyUHlLbUZ3UFBkTTNPR1VQalFlTU1jeDc0Yi9VczZaZm9IOHJxT1NvbUNoM2U1eXgySFdTcG5Gc21jcWora0JjcnVqL1VLYm9xdGZzWlFscGdLdThkQTRUUUs4RlQrYzFWMFJFL0QzM3RwUXlEaUZvemRTVGUvZmlReDVpZm04U2Y1Y25CSTZNS1lPUEpNUU0wUmx1Y2RPVzl5ZVdIZ0lWTCt2MS9QOE1tMncxcU9GMGY4TW14QT09IiwibWFjIjoiNGIzOWM4Nzg0ODZhNjlmYmMxYzkyMjg2MTBkNDBmZTdiNWRkZTFhN2EwYmRjYjExZDQwMmFmMjc2ZDc4MzI1NyIsInRhZyI6IiJ9; HttpOnly; SameSite=Lax; Secure; Path=/; Max-Age=7200; Expires=Fri, 24 Oct 2025 18:53:11 GMT', 'CF-RAY': '993afd270e69fd17-SIN', 'alt-svc': 'h3=":443"; ma=86400'} 
+ body={"current_page":1,"data":[],"first_page_url":"https:\/\/catfact.ninja\/facts?page=1","from":null,"last_page":1,"last_page_url":"https:\/\/catfact.ninja\/facts?page=1","links":[{"url":null,"label":"Previous","active":false},{"url":"https:\/\/catfact.ninja\/facts?page=1","label":"1","active":true},{"url":null,"label":"Next","active":false}],"next_page_url":null,"path":"https:\/\/catfact.ninja\/facts","per_page":3,"prev_page_url":null,"to":null,"total":0} 
+ </msg>
+<msg time="2025-10-24T18:53:11.103558" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>https://catfact.ninja/facts</arg>
+<arg>params=${params}</arg>
+<doc>Sends a GET request.</doc>
+<status status="PASS" start="2025-10-24T18:53:09.860836" elapsed="1.242722"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>\n[DEBUG] GET /facts with params: ${params}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-10-24T18:53:11.103558" elapsed="0.000000"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Status Code: ${response.status_code}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-10-24T18:53:11.103558" elapsed="0.000000"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Response Body: ${response.text}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-10-24T18:53:11.103558" elapsed="0.000000"/>
+</kw>
+<return>
+<value>${response}</value>
+<status status="PASS" start="2025-10-24T18:53:11.103558" elapsed="0.000000"/>
+</return>
+<msg time="2025-10-24T18:53:11.103558" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>${MAX_LENGTH}</arg>
+<arg>${LIMIT}</arg>
+<doc>Get facts from /facts endpoint with optional limit and max_length</doc>
+<status status="PASS" start="2025-10-24T18:53:09.860836" elapsed="1.242722"/>
+</kw>
+<kw name="Should Be Equal As Integers" owner="BuiltIn">
+<msg time="2025-10-24T18:53:11.117399" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${response.status_code}</arg>
+<arg>200</arg>
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<status status="PASS" start="2025-10-24T18:53:11.103558" elapsed="0.013841"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-10-24T18:53:11.119450" level="INFO">${json} = {'current_page': 1, 'data': [], 'first_page_url': 'https://catfact.ninja/facts?page=1', 'from': None, 'last_page': 1, 'last_page_url': 'https://catfact.ninja/facts?page=1', 'links': [{'url': None, 'la...</msg>
+<var>${json}</var>
+<arg>${response.json()}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-10-24T18:53:11.117399" elapsed="0.002051"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-10-24T18:53:11.119450" level="INFO">${data} = []</msg>
+<var>${data}</var>
+<arg>${json['data']}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-10-24T18:53:11.119450" elapsed="0.000000"/>
+</kw>
+<kw name="Get Length" owner="BuiltIn">
+<msg time="2025-10-24T18:53:11.119450" level="INFO">Length is 0.</msg>
+<msg time="2025-10-24T18:53:11.119450" level="INFO">${data_length} = 0</msg>
+<var>${data_length}</var>
+<arg>${data}</arg>
+<doc>Returns and logs the length of the given item as an integer.</doc>
+<status status="PASS" start="2025-10-24T18:53:11.119450" elapsed="0.000000"/>
+</kw>
+<kw name="Should Be True" owner="BuiltIn">
+<arg>${data_length} &lt;= ${LIMIT}</arg>
+<arg>Returned more facts than limit</arg>
+<doc>Fails if the given condition is not true.</doc>
+<status status="PASS" start="2025-10-24T18:53:11.119450" elapsed="0.000000"/>
+</kw>
+<for flavor="IN">
+<iter>
+<kw name="Should Be True" owner="BuiltIn">
+<arg>${item['length']} &lt;= ${MAX_LENGTH}</arg>
+<arg>Fact exceeds max_length</arg>
+<doc>Fails if the given condition is not true.</doc>
+<status status="NOT RUN" start="2025-10-24T18:53:11.119450" elapsed="0.000000"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>[DEBUG] Fact OK (length ${item['length']}): ${item['fact']}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" start="2025-10-24T18:53:11.119450" elapsed="0.000000"/>
+</kw>
+<var name="${item}"/>
+<status status="NOT RUN" start="2025-10-24T18:53:11.119450" elapsed="0.000000"/>
+</iter>
+<var>${item}</var>
+<value>@{data}</value>
+<status status="NOT RUN" start="2025-10-24T18:53:11.119450" elapsed="0.000000"/>
+</for>
+<status status="PASS" start="2025-10-24T18:53:09.860836" elapsed="1.258614"/>
+</test>
+<test id="s1-t9" name="Verify Default Facts When Limit Is Zero" line="131">
+<kw name="Get Facts With Limit" owner="api_keywords">
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Session Exists" owner="RequestsLibrary">
+<arg>catfact</arg>
+<doc>Return True if the session has been already created</doc>
+<status status="PASS" start="2025-10-24T18:53:11.119450" elapsed="0.000000"/>
+</kw>
+<msg time="2025-10-24T18:53:11.119450" level="INFO">${exists} = True</msg>
+<var>${exists}</var>
+<arg>Session Exists</arg>
+<arg>catfact</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2025-10-24T18:53:11.119450" elapsed="0.000000"/>
+</kw>
+<if>
+<branch type="IF" condition="not ${exists}">
+<kw name="Create Session" owner="RequestsLibrary">
+<arg>catfact</arg>
+<arg>https://catfact.ninja</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="NOT RUN" start="2025-10-24T18:53:11.119450" elapsed="0.000000"/>
+</kw>
+<status status="NOT RUN" start="2025-10-24T18:53:11.119450" elapsed="0.000000"/>
+</branch>
+<status status="PASS" start="2025-10-24T18:53:11.119450" elapsed="0.000000"/>
+</if>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-10-24T18:53:11.119450" level="INFO">${params} = {'limit': '0'}</msg>
+<var>${params}</var>
+<arg>limit=${limit}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-10-24T18:53:11.119450" elapsed="0.000000"/>
+</kw>
+<kw name="GET" owner="RequestsLibrary">
+<msg time="2025-10-24T18:53:12.197136" level="INFO">GET Request : url=https://catfact.ninja/facts?limit=0 
+ path_url=/facts?limit=0 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg time="2025-10-24T18:53:12.197136" level="INFO">GET Response : url=https://catfact.ninja/facts?limit=0 
+ status=200, reason=OK 
+ headers={'Date': 'Fri, 24 Oct 2025 16:53:12 GMT', 'Content-Type': 'application/json', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Server': 'cloudflare', 'vary': 'Accept-Encoding', 'Cache-Control': 'no-cache, private', 'x-ratelimit-limit': '100', 'x-ratelimit-remaining': '79', 'access-control-allow-origin': '*', 'x-frame-options': 'SAMEORIGIN', 'x-xss-protection': '1; mode=block', 'x-content-type-options': 'nosniff', 'Content-Encoding': 'gzip', 'Nel': '{"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}', 'cf-cache-status': 'DYNAMIC', 'Report-To': '{"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=%2F8ODX8PgPlXOTmmtQPs1baiVdCIBDa%2BAb9GY5mVoolP02BrRKoJpjVnxZv9x%2FJYXrWtnIWfq6FXeBa7O06t5QPY0dZDVLcJvyjsf7yU5KPXrVq18rmzeJCw%3D"}]}', 'Set-Cookie': 'XSRF-TOKEN=eyJpdiI6ImthazdTUkNOM2VsMmRpY3lhU1ZUV0E9PSIsInZhbHVlIjoiNHE5WGpib0Z1WFg1UnlvbXcxVlI4dlhoWks3cjgxVEI2bkNYMXZFUVpiVWwrZ2FiditEbDllOW4vYWg1TzVINHBOR1U2UHpOK1ZBdmVKY2VKU0wxdXU5T2JxSklKQWNGWGNhNFh0Q1JjbDdTb0swV2pSTlJsSDJ6K2tSd2ZaeDEiLCJtYWMiOiI5Yjk2MGEyMTZlMmJjNGZlZTY2ZGI3YjgxYTcxYzNjZGVmMGNmNjcwOTRhZWFiNTIwNTJjMTQ2NGVkN2QwMGFlIiwidGFnIjoiIn0%3D; SameSite=Lax; Secure; Path=/; Max-Age=7200; Expires=Fri, 24 Oct 2025 18:53:12 GMT, catfacts_session=eyJpdiI6Ik84WmwvRHdIS1QrTXBBVWZEY3hES1E9PSIsInZhbHVlIjoiYkg2NndPV1prOGJUalhVVWpzckZZRUpwT3VrV0ptcDQwZmxRdkVucE5rUVlmR1BoMkxYeERoQndKWThDK0RNVVZDTG95YWdxVlE5bnhYZjI5MzA0SCt2WTVLSEErNjkzOFJmaTQ1U0wrdVgrMm1IRFlTNldsMk9zUlVLZi92blEiLCJtYWMiOiI2ODJlNDYxMTE3OGUzM2E0M2I2MTZmMmNmOGY4ZGEyZjkyMTg1ZTE0YWY5NzE2ODFkNTQ1N2JmZWJhMDc1ZDJiIiwidGFnIjoiIn0%3D; HttpOnly; SameSite=Lax; Secure; Path=/; Max-Age=7200; Expires=Fri, 24 Oct 2025 18:53:12 GMT, FzzP6RhXutc6zeMbRk56xDtGFcTmbVewCOMOgEjp=eyJpdiI6InFRMDdiVWdLSDlSaEQ4S0I3MVViWUE9PSIsInZhbHVlIjoiSFI3amcwMVBKMHhqM09OTU4wMituUEt4UzhkMFdQL2Nvczlra0lsSitpODdOOTdUUW14TnBRa0pGMnBsQ2tkbGt1NGUzbXdCOC9RNnc5dGxIYitLWTJPUEVheVNIcTZHaERBRVVNNi82M01FcExjVG03cy9PN1pwNC9xMFdPaUVLMWxUdkQ1cmh5Y1cvVmh0TnZtTTdpYSs3U3hQWW1yeEtKV05RRGx2T2NXY2I5SEhoN0Jqa1dsalNNUk9ia3ZIdkpTdW5ZZFloMmZiRk8vTHlFbFU3WE1RY2Q2TjFIZFl0TUx5dXFjYzBqL1hmK2hxNnl2UXF4b1I4cnpiRjhxUVg5aDRJR3cvUGdhN3FEOXdYUkJEejg2OWh5dVpmeDdJNG5Id09oNEFJUnRDY3FEdHJNZHBMUnFqK0NzMzFsdUFvblVFaGUzcjFhSzN2OFprSFZTUHJNd1NOcjJ3UWxxbGtCdHg1YXlKc0hBbE5BMU03NnhvOFNtcGlFTXpSM055IiwibWFjIjoiNTRiMmE2YTRiMjIxZWM4ZTc0MTk5NmYyMDQzY2U2YmRiMTE4ODRhN2FiZDA0NDQxZDJmNjc0NzA0ZTIzMWZkZCIsInRhZyI6IiJ9; HttpOnly; SameSite=Lax; Secure; Path=/; Max-Age=7200; Expires=Fri, 24 Oct 2025 18:53:12 GMT', 'CF-RAY': '993afd2dc992290d-SIN', 'alt-svc': 'h3=":443"; ma=86400'} 
+ body={"current_page":1,"data":[{"fact":"Unlike dogs, cats do not have a sweet tooth. Scientists believe this is due to a mutation in a key taste receptor.","length":114},{"fact":"When a cat chases its prey, it keeps its head level. Dogs and humans bob their heads up and down.","length":97},{"fact":"The technical term for a cat\u2019s hairball is a \u201cbezoar.\u201d","length":54},{"fact":"A group of cats is called a \u201cclowder.\u201d","length":38},{"fact":"A cat can\u2019t climb head first down a tree because every claw on a cat\u2019s paw points the same way. To get down from a tree, a cat must back down.","length":142},{"fact":"Cats make about 100 different sounds. Dogs make only about 10.","length":62},{"fact":"Every year, nearly four million cats are eaten in Asia.","length":55},{"fact":"There are more than 500 million domestic cats in the world, with approximately 40 recognized breeds.","length":100},{"fact":"Approximately 24 cat skins can make a coat.","length":43},{"fact":"While it is commonly thought that the ancient Egyptians were the first to domesticate cats, the oldest known pet cat was recently found in a 9,500-year-old grave on the Mediterranean island of Cyprus. This grave predates early Egyptian art depicting cats by 4,000 years or more.","length":278}],"first_page_url":"https:\/\/catfact.ninja\/facts?page=1","from":1,"last_page":34,"last_page_url":"https:\/\/catfact.ninja\/facts?page=34","links":[{"url":null,"label":"Previous","active":false},{"url":"https:\/\/catfact.ninja\/facts?page=1","label":"1","active":true},{"url":"https:\/\/catfact.ninja\/facts?page=2","label":"2","active":false},{"url":"https:\/\/catfact.ninja\/facts?page=3","label":"3","active":false},{"url":"https:\/\/catfact.ninja\/facts?page=4","label":"4","active":false},{"url":"https:\/\/catfact.ninja\/facts?page=5","label":"5","active":false},{"url":"https:\/\/catfact.ninja\/facts?page=6","label":"6","active":false},{"url":"https:\/\/catfact.ninja\/facts?page=7","label":"7","active":false},{"url":"https:\/\/catfact.ninja\/facts?page=8","label":"8","active":false},{"url":"https:\/\/catfact.ninja\/facts?page=9","label":"9","active":false},{"url":"https:\/\/catfact.ninja\/facts?page=10","label":"10","active":false},{"url":null,"label":"...","active":false},{"url":"https:\/\/catfact.ninja\/facts?page=33","label":"33","active":false},{"url":"https:\/\/catfact.ninja\/facts?page=34","label":"34","active":false},{"url":"https:\/\/catfact.ninja\/facts?page=2","label":"Next","active":false}],"next_page_url":"https:\/\/catfact.ninja\/facts?page=2","path":"https:\/\/catfact.ninja\/facts","per_page":10,"prev_page_url":null,"to":10,"total":332} 
+ </msg>
+<msg time="2025-10-24T18:53:12.197136" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>https://catfact.ninja/facts</arg>
+<arg>params=${params}</arg>
+<doc>Sends a GET request.</doc>
+<status status="PASS" start="2025-10-24T18:53:11.119450" elapsed="1.077686"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>\n[REQUEST] GET /facts?limit=${limit}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-10-24T18:53:12.197136" elapsed="0.001127"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Status: ${response.status_code}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-10-24T18:53:12.198263" elapsed="0.000000"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Body: ${response.text}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-10-24T18:53:12.198263" elapsed="0.000000"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-10-24T18:53:12.200737" level="INFO">{"current_page":1,"data":[{"fact":"Unlike dogs, cats do not have a sweet tooth. Scientists believe this is due to a mutation in a key taste receptor.","length":114},{"fact":"When a cat chases its prey, it keeps its head level. Dogs and humans bob their heads up and down.","length":97},{"fact":"The technical term for a cat\u2019s hairball is a \u201cbezoar.\u201d","length":54},{"fact":"A group of cats is called a \u201cclowder.\u201d","length":38},{"fact":"A cat can\u2019t climb head first down a tree because every claw on a cat\u2019s paw points the same way. To get down from a tree, a cat must back down.","length":142},{"fact":"Cats make about 100 different sounds. Dogs make only about 10.","length":62},{"fact":"Every year, nearly four million cats are eaten in Asia.","length":55},{"fact":"There are more than 500 million domestic cats in the world, with approximately 40 recognized breeds.","length":100},{"fact":"Approximately 24 cat skins can make a coat.","length":43},{"fact":"While it is commonly thought that the ancient Egyptians were the first to domesticate cats, the oldest known pet cat was recently found in a 9,500-year-old grave on the Mediterranean island of Cyprus. This grave predates early Egyptian art depicting cats by 4,000 years or more.","length":278}],"first_page_url":"https:\/\/catfact.ninja\/facts?page=1","from":1,"last_page":34,"last_page_url":"https:\/\/catfact.ninja\/facts?page=34","links":[{"url":null,"label":"Previous","active":false},{"url":"https:\/\/catfact.ninja\/facts?page=1","label":"1","active":true},{"url":"https:\/\/catfact.ninja\/facts?page=2","label":"2","active":false},{"url":"https:\/\/catfact.ninja\/facts?page=3","label":"3","active":false},{"url":"https:\/\/catfact.ninja\/facts?page=4","label":"4","active":false},{"url":"https:\/\/catfact.ninja\/facts?page=5","label":"5","active":false},{"url":"https:\/\/catfact.ninja\/facts?page=6","label":"6","active":false},{"url":"https:\/\/catfact.ninja\/facts?page=7","label":"7","active":false},{"url":"https:\/\/catfact.ninja\/facts?page=8","label":"8","active":false},{"url":"https:\/\/catfact.ninja\/facts?page=9","label":"9","active":false},{"url":"https:\/\/catfact.ninja\/facts?page=10","label":"10","active":false},{"url":null,"label":"...","active":false},{"url":"https:\/\/catfact.ninja\/facts?page=33","label":"33","active":false},{"url":"https:\/\/catfact.ninja\/facts?page=34","label":"34","active":false},{"url":"https:\/\/catfact.ninja\/facts?page=2","label":"Next","active":false}],"next_page_url":"https:\/\/catfact.ninja\/facts?page=2","path":"https:\/\/catfact.ninja\/facts","per_page":10,"prev_page_url":null,"to":10,"total":332}</msg>
+<arg>${response.text}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-10-24T18:53:12.200737" elapsed="0.000000"/>
+</kw>
+<return>
+<value>${response}</value>
+<status status="PASS" start="2025-10-24T18:53:12.200737" elapsed="0.000000"/>
+</return>
+<msg time="2025-10-24T18:53:12.200737" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>0</arg>
+<doc>Perform GET request to /facts endpoint with a limit</doc>
+<status status="PASS" start="2025-10-24T18:53:11.119450" elapsed="1.081287"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-10-24T18:53:12.200737" level="INFO">${json} = {'current_page': 1, 'data': [{'fact': 'Unlike dogs, cats do not have a sweet tooth. Scientists believe this is due to a mutation in a key taste receptor.', 'length': 114}, {'fact': 'When a cat chases ...</msg>
+<var>${json}</var>
+<arg>${response.json()}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-10-24T18:53:12.200737" elapsed="0.000000"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-10-24T18:53:12.200737" level="INFO">${data} = [{'fact': 'Unlike dogs, cats do not have a sweet tooth. Scientists believe this is due to a mutation in a key taste receptor.', 'length': 114}, {'fact': 'When a cat chases its prey, it keeps its head ...</msg>
+<var>${data}</var>
+<arg>${json['data']}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-10-24T18:53:12.200737" elapsed="0.000000"/>
+</kw>
+<kw name="Get Length" owner="BuiltIn">
+<msg time="2025-10-24T18:53:12.200737" level="INFO">Length is 10.</msg>
+<msg time="2025-10-24T18:53:12.200737" level="INFO">${data_length} = 10</msg>
+<var>${data_length}</var>
+<arg>${data}</arg>
+<doc>Returns and logs the length of the given item as an integer.</doc>
+<status status="PASS" start="2025-10-24T18:53:12.200737" elapsed="0.000000"/>
+</kw>
+<kw name="Should Be True" owner="BuiltIn">
+<arg>${data_length} &lt;= 10</arg>
+<arg>Returned more than 10 facts when limit=0</arg>
+<doc>Fails if the given condition is not true.</doc>
+<status status="PASS" start="2025-10-24T18:53:12.200737" elapsed="0.000000"/>
+</kw>
+<kw name="Should Be Equal As Integers" owner="BuiltIn">
+<msg time="2025-10-24T18:53:12.200737" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${json['per_page']}</arg>
+<arg>10</arg>
+<arg>per_page should be 10</arg>
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<status status="PASS" start="2025-10-24T18:53:12.200737" elapsed="0.000000"/>
+</kw>
+<doc>When limit = 0, the API should return 10 facts by default.</doc>
+<status status="PASS" start="2025-10-24T18:53:11.119450" elapsed="1.081287"/>
+</test>
+<test id="s1-t10" name="Verify Default Facts When Limit Is Negative" line="144">
+<kw name="Get Facts With Limit" owner="api_keywords">
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Session Exists" owner="RequestsLibrary">
+<arg>catfact</arg>
+<doc>Return True if the session has been already created</doc>
+<status status="PASS" start="2025-10-24T18:53:12.200737" elapsed="0.000000"/>
+</kw>
+<msg time="2025-10-24T18:53:12.200737" level="INFO">${exists} = True</msg>
+<var>${exists}</var>
+<arg>Session Exists</arg>
+<arg>catfact</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2025-10-24T18:53:12.200737" elapsed="0.000000"/>
+</kw>
+<if>
+<branch type="IF" condition="not ${exists}">
+<kw name="Create Session" owner="RequestsLibrary">
+<arg>catfact</arg>
+<arg>https://catfact.ninja</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="NOT RUN" start="2025-10-24T18:53:12.200737" elapsed="0.000000"/>
+</kw>
+<status status="NOT RUN" start="2025-10-24T18:53:12.200737" elapsed="0.000000"/>
+</branch>
+<status status="PASS" start="2025-10-24T18:53:12.200737" elapsed="0.000000"/>
+</if>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-10-24T18:53:12.200737" level="INFO">${params} = {'limit': '-5'}</msg>
+<var>${params}</var>
+<arg>limit=${limit}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-10-24T18:53:12.200737" elapsed="0.000000"/>
+</kw>
+<kw name="GET" owner="RequestsLibrary">
+<msg time="2025-10-24T18:53:13.949699" level="INFO">GET Request : url=https://catfact.ninja/facts?limit=-5 
+ path_url=/facts?limit=-5 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg time="2025-10-24T18:53:13.949699" level="INFO">GET Response : url=https://catfact.ninja/facts?limit=-5 
+ status=200, reason=OK 
+ headers={'Date': 'Fri, 24 Oct 2025 16:53:13 GMT', 'Content-Type': 'application/json', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Server': 'cloudflare', 'vary': 'Accept-Encoding', 'Cache-Control': 'no-cache, private', 'x-ratelimit-limit': '100', 'x-ratelimit-remaining': '84', 'access-control-allow-origin': '*', 'x-frame-options': 'SAMEORIGIN', 'x-xss-protection': '1; mode=block', 'x-content-type-options': 'nosniff', 'Content-Encoding': 'gzip', 'Nel': '{"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}', 'cf-cache-status': 'DYNAMIC', 'Report-To': '{"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=CvuQ2ed5YLYAeAAvA0Avi3jLplNuSlrkAd3pj%2BAV1mGK2n2Fv9DQROqU5TV9jHjtewQt9ZwRQsY5U9YKKIJcmAeWXN6Ap5xsqLvfVfAzlfAUKXiYxYj07pA%3D"}]}', 'Set-Cookie': 'XSRF-TOKEN=eyJpdiI6InJaNmRUcitSRFVOTmI1TFY5QW1Rb2c9PSIsInZhbHVlIjoic0N1QTZTZFBsQkppVW56ZjJEeXh0RVpSTHJXZEpRY0hYb0Rkb1FHeHZ4ZVFBNUNSa3MyeDhqMDNHdmNaQlFVd09JSkVhVWdmWDUxZHJYZmdvMHJpTXBoK1lRS1o1ZmhMaE00dytKMU9reG1QUTlDUTN3L2N5MitDSXlLK0MzeWEiLCJtYWMiOiI4YTZlMDE2ZTlmMmQwYmI2NzUyZWU3YzRkNmQxMTc2NThhZTVhNTcyMzIwZjE5MDAzYzFjNGQwY2Q0ZTIxMmE1IiwidGFnIjoiIn0%3D; SameSite=Lax; Secure; Path=/; Max-Age=7200; Expires=Fri, 24 Oct 2025 18:53:13 GMT, catfacts_session=eyJpdiI6IkZ5S0l3M21UZjJCM203N2htSHBKR2c9PSIsInZhbHVlIjoiWWtrRVV5RzVVWGNRWUpXWjBpdno4Zk93cGRVMVhvUUxSR3hLSDk2TlQyak0xa3J5c1p0a1R6aExqQ0RjM1RXKzJBSjJyYlpXQncvbzFkQWhuOVlIbm1WOTJDcmp3YTBzODc2ZUlYQitCUmVobkxhd1ZQblROQ0xTZlZkUzJBcksiLCJtYWMiOiIzOGIxYjlmYzcxMWU3M2NhODAxODgzZmFkNjg2NzgxMzdhNzUwNTBkZTA3OWEzZGY3Mzk2MjJhZmY0MDU0N2FiIiwidGFnIjoiIn0%3D; HttpOnly; SameSite=Lax; Secure; Path=/; Max-Age=7200; Expires=Fri, 24 Oct 2025 18:53:13 GMT, 50A4L2LLyyGEmK8WPavg0mJbhYUKLYy3Lhs6GUj5=eyJpdiI6InpUNVVqc0FITE1DQk5mQVY0SFJZZWc9PSIsInZhbHVlIjoiUUJiMWYyMVRTbUtKR0U2OEFGU3I0WUppbTJYYWdldTZLc2gvNXptN21PcE8zRnBtSTg0S1U2RmFYNU1YeC9iOG90dE9VT0REMDFmaFI5Mjd6b2lKczZyU216SG1vb3FpTHc0aVBXUmhQWFVxK2ludmJnaG9PMVhvdTNQM2dnUi84LzlXbXJhUnROT2VzdURaQTQrYkMvc0RkOEJHMnVzL2IvSWxoK0hNOWxiK3FrMXg2c3BWMGFxa2lHRWdjdXNkMjlwZXQxK08ydStnc1ZYRlQvVXB4aVF2NXNzcUNRQWVkbEI4VDNMcU5lL2loUEpTZ3ovL01YWnJvYmNVSEo1ZnVPVzk5TGpjUG9sTWlBZ3NoNnVpOEF5ei9oRXd1OXVONWp5N21Sb2dFQ3RFazhGM2VCZFV0Z1g1Ny8wWmJsUFJwbjgwbng1TmNnUDVUdWhnU0xvUXlOaEs3alA4a25MbVRoQ0dTaFNxVkU3bzFkc1Qwa3U5VXErVG9IWlB1d1BFIiwibWFjIjoiNzkxOTQyYzQ4ODkyNDgxY2Q0YzBjYmIxYjZmOWVmNTYwYTlhZDljZThhZTg2MzFhMzBlNzRiZTkyOTA1NThiOSIsInRhZyI6IiJ9; HttpOnly; SameSite=Lax; Secure; Path=/; Max-Age=7200; Expires=Fri, 24 Oct 2025 18:53:13 GMT', 'CF-RAY': '993afd37abb74118-SIN', 'alt-svc': 'h3=":443"; ma=86400'} 
+ body={"current_page":1,"data":[{"fact":"Unlike dogs, cats do not have a sweet tooth. Scientists believe this is due to a mutation in a key taste receptor.","length":114},{"fact":"When a cat chases its prey, it keeps its head level. Dogs and humans bob their heads up and down.","length":97},{"fact":"The technical term for a cat\u2019s hairball is a \u201cbezoar.\u201d","length":54},{"fact":"A group of cats is called a \u201cclowder.\u201d","length":38},{"fact":"A cat can\u2019t climb head first down a tree because every claw on a cat\u2019s paw points the same way. To get down from a tree, a cat must back down.","length":142},{"fact":"Cats make about 100 different sounds. Dogs make only about 10.","length":62},{"fact":"Every year, nearly four million cats are eaten in Asia.","length":55},{"fact":"There are more than 500 million domestic cats in the world, with approximately 40 recognized breeds.","length":100},{"fact":"Approximately 24 cat skins can make a coat.","length":43},{"fact":"While it is commonly thought that the ancient Egyptians were the first to domesticate cats, the oldest known pet cat was recently found in a 9,500-year-old grave on the Mediterranean island of Cyprus. This grave predates early Egyptian art depicting cats by 4,000 years or more.","length":278}],"first_page_url":"https:\/\/catfact.ninja\/facts?page=1","from":1,"last_page":34,"last_page_url":"https:\/\/catfact.ninja\/facts?page=34","links":[{"url":null,"label":"Previous","active":false},{"url":"https:\/\/catfact.ninja\/facts?page=1","label":"1","active":true},{"url":"https:\/\/catfact.ninja\/facts?page=2","label":"2","active":false},{"url":"https:\/\/catfact.ninja\/facts?page=3","label":"3","active":false},{"url":"https:\/\/catfact.ninja\/facts?page=4","label":"4","active":false},{"url":"https:\/\/catfact.ninja\/facts?page=5","label":"5","active":false},{"url":"https:\/\/catfact.ninja\/facts?page=6","label":"6","active":false},{"url":"https:\/\/catfact.ninja\/facts?page=7","label":"7","active":false},{"url":"https:\/\/catfact.ninja\/facts?page=8","label":"8","active":false},{"url":"https:\/\/catfact.ninja\/facts?page=9","label":"9","active":false},{"url":"https:\/\/catfact.ninja\/facts?page=10","label":"10","active":false},{"url":null,"label":"...","active":false},{"url":"https:\/\/catfact.ninja\/facts?page=33","label":"33","active":false},{"url":"https:\/\/catfact.ninja\/facts?page=34","label":"34","active":false},{"url":"https:\/\/catfact.ninja\/facts?page=2","label":"Next","active":false}],"next_page_url":"https:\/\/catfact.ninja\/facts?page=2","path":"https:\/\/catfact.ninja\/facts","per_page":10,"prev_page_url":null,"to":10,"total":332} 
+ </msg>
+<msg time="2025-10-24T18:53:13.961191" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>https://catfact.ninja/facts</arg>
+<arg>params=${params}</arg>
+<doc>Sends a GET request.</doc>
+<status status="PASS" start="2025-10-24T18:53:12.200737" elapsed="1.760454"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>\n[REQUEST] GET /facts?limit=${limit}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-10-24T18:53:13.961191" elapsed="0.000000"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Status: ${response.status_code}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-10-24T18:53:13.961191" elapsed="0.001306"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Body: ${response.text}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-10-24T18:53:13.962497" elapsed="0.000000"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-10-24T18:53:13.962497" level="INFO">{"current_page":1,"data":[{"fact":"Unlike dogs, cats do not have a sweet tooth. Scientists believe this is due to a mutation in a key taste receptor.","length":114},{"fact":"When a cat chases its prey, it keeps its head level. Dogs and humans bob their heads up and down.","length":97},{"fact":"The technical term for a cat\u2019s hairball is a \u201cbezoar.\u201d","length":54},{"fact":"A group of cats is called a \u201cclowder.\u201d","length":38},{"fact":"A cat can\u2019t climb head first down a tree because every claw on a cat\u2019s paw points the same way. To get down from a tree, a cat must back down.","length":142},{"fact":"Cats make about 100 different sounds. Dogs make only about 10.","length":62},{"fact":"Every year, nearly four million cats are eaten in Asia.","length":55},{"fact":"There are more than 500 million domestic cats in the world, with approximately 40 recognized breeds.","length":100},{"fact":"Approximately 24 cat skins can make a coat.","length":43},{"fact":"While it is commonly thought that the ancient Egyptians were the first to domesticate cats, the oldest known pet cat was recently found in a 9,500-year-old grave on the Mediterranean island of Cyprus. This grave predates early Egyptian art depicting cats by 4,000 years or more.","length":278}],"first_page_url":"https:\/\/catfact.ninja\/facts?page=1","from":1,"last_page":34,"last_page_url":"https:\/\/catfact.ninja\/facts?page=34","links":[{"url":null,"label":"Previous","active":false},{"url":"https:\/\/catfact.ninja\/facts?page=1","label":"1","active":true},{"url":"https:\/\/catfact.ninja\/facts?page=2","label":"2","active":false},{"url":"https:\/\/catfact.ninja\/facts?page=3","label":"3","active":false},{"url":"https:\/\/catfact.ninja\/facts?page=4","label":"4","active":false},{"url":"https:\/\/catfact.ninja\/facts?page=5","label":"5","active":false},{"url":"https:\/\/catfact.ninja\/facts?page=6","label":"6","active":false},{"url":"https:\/\/catfact.ninja\/facts?page=7","label":"7","active":false},{"url":"https:\/\/catfact.ninja\/facts?page=8","label":"8","active":false},{"url":"https:\/\/catfact.ninja\/facts?page=9","label":"9","active":false},{"url":"https:\/\/catfact.ninja\/facts?page=10","label":"10","active":false},{"url":null,"label":"...","active":false},{"url":"https:\/\/catfact.ninja\/facts?page=33","label":"33","active":false},{"url":"https:\/\/catfact.ninja\/facts?page=34","label":"34","active":false},{"url":"https:\/\/catfact.ninja\/facts?page=2","label":"Next","active":false}],"next_page_url":"https:\/\/catfact.ninja\/facts?page=2","path":"https:\/\/catfact.ninja\/facts","per_page":10,"prev_page_url":null,"to":10,"total":332}</msg>
+<arg>${response.text}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-10-24T18:53:13.962497" elapsed="0.000000"/>
+</kw>
+<return>
+<value>${response}</value>
+<status status="PASS" start="2025-10-24T18:53:13.962497" elapsed="0.000000"/>
+</return>
+<msg time="2025-10-24T18:53:13.964760" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>-5</arg>
+<doc>Perform GET request to /facts endpoint with a limit</doc>
+<status status="PASS" start="2025-10-24T18:53:12.200737" elapsed="1.764023"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-10-24T18:53:13.964760" level="INFO">${json} = {'current_page': 1, 'data': [{'fact': 'Unlike dogs, cats do not have a sweet tooth. Scientists believe this is due to a mutation in a key taste receptor.', 'length': 114}, {'fact': 'When a cat chases ...</msg>
+<var>${json}</var>
+<arg>${response.json()}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-10-24T18:53:13.964760" elapsed="0.000000"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-10-24T18:53:13.967483" level="INFO">${data} = [{'fact': 'Unlike dogs, cats do not have a sweet tooth. Scientists believe this is due to a mutation in a key taste receptor.', 'length': 114}, {'fact': 'When a cat chases its prey, it keeps its head ...</msg>
+<var>${data}</var>
+<arg>${json['data']}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-10-24T18:53:13.964760" elapsed="0.002723"/>
+</kw>
+<kw name="Get Length" owner="BuiltIn">
+<msg time="2025-10-24T18:53:13.967483" level="INFO">Length is 10.</msg>
+<msg time="2025-10-24T18:53:13.967483" level="INFO">${data_length} = 10</msg>
+<var>${data_length}</var>
+<arg>${data}</arg>
+<doc>Returns and logs the length of the given item as an integer.</doc>
+<status status="PASS" start="2025-10-24T18:53:13.967483" elapsed="0.000000"/>
+</kw>
+<kw name="Should Be True" owner="BuiltIn">
+<arg>${data_length} &lt;= 10</arg>
+<arg>Returned more than 10 facts when limit =-5</arg>
+<doc>Fails if the given condition is not true.</doc>
+<status status="PASS" start="2025-10-24T18:53:13.967483" elapsed="0.000000"/>
+</kw>
+<kw name="Should Be Equal As Integers" owner="BuiltIn">
+<msg time="2025-10-24T18:53:13.967483" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${json['per_page']}</arg>
+<arg>10</arg>
+<arg>per_page should be 10</arg>
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<status status="PASS" start="2025-10-24T18:53:13.967483" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2025-10-24T18:53:12.200737" elapsed="1.766746"/>
+</test>
+<test id="s1-t11" name="Verify Default Facts When Limit Is Missing" line="153">
+<kw name="Get Facts Without Limit" owner="api_keywords">
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Session Exists" owner="RequestsLibrary">
+<arg>catfact</arg>
+<doc>Return True if the session has been already created</doc>
+<status status="PASS" start="2025-10-24T18:53:13.967483" elapsed="0.000000"/>
+</kw>
+<msg time="2025-10-24T18:53:13.967483" level="INFO">${exists} = True</msg>
+<var>${exists}</var>
+<arg>Session Exists</arg>
+<arg>catfact</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2025-10-24T18:53:13.967483" elapsed="0.000000"/>
+</kw>
+<if>
+<branch type="IF" condition="not ${exists}">
+<kw name="Create Session" owner="RequestsLibrary">
+<arg>catfact</arg>
+<arg>https://catfact.ninja</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="NOT RUN" start="2025-10-24T18:53:13.967483" elapsed="0.000000"/>
+</kw>
+<status status="NOT RUN" start="2025-10-24T18:53:13.967483" elapsed="0.000000"/>
+</branch>
+<status status="PASS" start="2025-10-24T18:53:13.967483" elapsed="0.000000"/>
+</if>
+<kw name="GET" owner="RequestsLibrary">
+<msg time="2025-10-24T18:53:16.300549" level="INFO">GET Request : url=https://catfact.ninja/facts 
+ path_url=/facts 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg time="2025-10-24T18:53:16.300549" level="INFO">GET Response : url=https://catfact.ninja/facts 
+ status=200, reason=OK 
+ headers={'Date': 'Fri, 24 Oct 2025 16:53:16 GMT', 'Content-Type': 'application/json', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Server': 'cloudflare', 'vary': 'Accept-Encoding', 'Cache-Control': 'no-cache, private', 'x-ratelimit-limit': '100', 'x-ratelimit-remaining': '65', 'access-control-allow-origin': '*', 'x-frame-options': 'SAMEORIGIN', 'x-xss-protection': '1; mode=block', 'x-content-type-options': 'nosniff', 'Content-Encoding': 'gzip', 'Nel': '{"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}', 'cf-cache-status': 'DYNAMIC', 'Report-To': '{"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=g2%2B2ToqKoJZ98s5QI9Fc%2BUWh%2FuEMUHNiQBh%2Fs2JQVu44ZYokE4%2BpFBM91nAGzYiq1kyxoGD3Mi%2Fg%2Fldz6sOJsiw%2Fb%2Bs8a%2F9iukDqZAPhKFBDNKiFBQOodvs%3D"}]}', 'Set-Cookie': 'XSRF-TOKEN=eyJpdiI6IlB5OEtIaVAwTHpXNFo3cUtQaytBSXc9PSIsInZhbHVlIjoiT0tYUzZLOUU5bkhaODd0VWsyRVpHMjVkMXE2SjhkbnRwNEt0Ly9OYW9UbTZjTWp3YnZiRW1zQkdQcUsrSjlvaVcyR3k2b0lnaTZMNDcvT01iazdYeW4rWVpMc1RVVUFDM1gzcTZ4RE90cldSQkc2MDkxUzZ6Y3V4L1ZpR0ljNGoiLCJtYWMiOiIxNWI2MWM0MzIwOTVmOWJjZmM4ODFmMDliZDZjZjA5ODVjZDIzMjMyMGQwYjRhMjJiZDQ5YjAwZTllOTVhMTgzIiwidGFnIjoiIn0%3D; SameSite=Lax; Secure; Path=/; Max-Age=7200; Expires=Fri, 24 Oct 2025 18:53:16 GMT, catfacts_session=eyJpdiI6Im9tNmVvdW1GakZvS21ZRy8vR05NaUE9PSIsInZhbHVlIjoiTkdadWFKeGgyYUxQdHJPYjlnK2NtYWtyYm4yTmVQMEFRQ29wSWgyN0hUeVhGR0ZjYnppaGYrbS9DZ3JDL2YrZDVkZmZNYmRKdG9NbmZpWkhhTEp3OEYzZ092UStwM1NrcVRsbVQybDdpNjQ1MDcvbjJUMFR1YXlyVUhacFhXclciLCJtYWMiOiJiMTljODRhNmUzM2ZlYzdjZjkzNjU3MWQ1ZjY2OTgzMGVmMTAzOTE3NTkwY2M4MDM5MWNhOTQ4MDgxNGRmMmVjIiwidGFnIjoiIn0%3D; HttpOnly; SameSite=Lax; Secure; Path=/; Max-Age=7200; Expires=Fri, 24 Oct 2025 18:53:16 GMT, h10YwUNAMNuCWBcoE7ZnPDOcJPbuUtMCLXtkMukB=eyJpdiI6IjNySlAwY0g2M2xwdXFXZFk4bDF0VEE9PSIsInZhbHVlIjoiazhIcUlkR25SOWJjd3M3eFg3WTJ1eUVzZGxsR0UrVjNyVWVQQ2dhN1VnZDVWZkphbXR5Z1hrc0QyUmtGTE5SKzlESjBNb0RGQTExcmg5akIxWkNUM2NwK1hMSS8yWFM3Q3pRZW9lN09MLzFCZG51QTh2a1hPMm92WFpIVXZIaEdBUFBoYm5sK0I1SDUyaDFMOWdxY2JvMWtpYzIrUlpMOGxDbXc0MjNqcFpjcVdCckZVQU04Z0d0ZktRdld3dzBOYTBHRHZORlA2VGs3dFl6Qmg3LzFLUEludHhQT2tlb1E5elVIdmg2eU5qZEVJS0dKUHZDRjNsNzZRRmZ0NjA1T0dOQ05SNk1DSSs0cW9CeVQyMTNkZ0hhazJ3ZXhZVWpwMjVYa0pBOGI5bkpRV3oyM1k3Q0tSRXBtMHByb2xsWW41eForUUxBM09YY1A1MkFSUHB3SG9HcUF4NGJDRER0T2F3ODJFa09yZ3NOWDM0RWFyc1V0MktPdDBxSTIyZU1rIiwibWFjIjoiZDIyYWEyNmZlOGJiZmVlMGYyNmRhYjVkMzRjYWNlMmE2ZTdhZDZlYWE1MTVlYzZlYmRkZTVmYjNkYzg0MGM3MiIsInRhZyI6IiJ9; HttpOnly; SameSite=Lax; Secure; Path=/; Max-Age=7200; Expires=Fri, 24 Oct 2025 18:53:16 GMT', 'CF-RAY': '993afd46ea6da8f7-SIN', 'alt-svc': 'h3=":443"; ma=86400'} 
+ body={"current_page":1,"data":[{"fact":"Unlike dogs, cats do not have a sweet tooth. Scientists believe this is due to a mutation in a key taste receptor.","length":114},{"fact":"When a cat chases its prey, it keeps its head level. Dogs and humans bob their heads up and down.","length":97},{"fact":"The technical term for a cat\u2019s hairball is a \u201cbezoar.\u201d","length":54},{"fact":"A group of cats is called a \u201cclowder.\u201d","length":38},{"fact":"A cat can\u2019t climb head first down a tree because every claw on a cat\u2019s paw points the same way. To get down from a tree, a cat must back down.","length":142},{"fact":"Cats make about 100 different sounds. Dogs make only about 10.","length":62},{"fact":"Every year, nearly four million cats are eaten in Asia.","length":55},{"fact":"There are more than 500 million domestic cats in the world, with approximately 40 recognized breeds.","length":100},{"fact":"Approximately 24 cat skins can make a coat.","length":43},{"fact":"While it is commonly thought that the ancient Egyptians were the first to domesticate cats, the oldest known pet cat was recently found in a 9,500-year-old grave on the Mediterranean island of Cyprus. This grave predates early Egyptian art depicting cats by 4,000 years or more.","length":278}],"first_page_url":"https:\/\/catfact.ninja\/facts?page=1","from":1,"last_page":34,"last_page_url":"https:\/\/catfact.ninja\/facts?page=34","links":[{"url":null,"label":"Previous","active":false},{"url":"https:\/\/catfact.ninja\/facts?page=1","label":"1","active":true},{"url":"https:\/\/catfact.ninja\/facts?page=2","label":"2","active":false},{"url":"https:\/\/catfact.ninja\/facts?page=3","label":"3","active":false},{"url":"https:\/\/catfact.ninja\/facts?page=4","label":"4","active":false},{"url":"https:\/\/catfact.ninja\/facts?page=5","label":"5","active":false},{"url":"https:\/\/catfact.ninja\/facts?page=6","label":"6","active":false},{"url":"https:\/\/catfact.ninja\/facts?page=7","label":"7","active":false},{"url":"https:\/\/catfact.ninja\/facts?page=8","label":"8","active":false},{"url":"https:\/\/catfact.ninja\/facts?page=9","label":"9","active":false},{"url":"https:\/\/catfact.ninja\/facts?page=10","label":"10","active":false},{"url":null,"label":"...","active":false},{"url":"https:\/\/catfact.ninja\/facts?page=33","label":"33","active":false},{"url":"https:\/\/catfact.ninja\/facts?page=34","label":"34","active":false},{"url":"https:\/\/catfact.ninja\/facts?page=2","label":"Next","active":false}],"next_page_url":"https:\/\/catfact.ninja\/facts?page=2","path":"https:\/\/catfact.ninja\/facts","per_page":10,"prev_page_url":null,"to":10,"total":332} 
+ </msg>
+<msg time="2025-10-24T18:53:16.300549" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>https://catfact.ninja/facts</arg>
+<doc>Sends a GET request.</doc>
+<status status="PASS" start="2025-10-24T18:53:13.967483" elapsed="2.333066"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>\n[REQUEST] GET /facts (no limit)</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-10-24T18:53:16.300549" elapsed="0.000000"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Status: ${response.status_code}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-10-24T18:53:16.300549" elapsed="0.002676"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Body: ${response.text}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-10-24T18:53:16.303225" elapsed="0.000000"/>
+</kw>
+<return>
+<value>${response}</value>
+<status status="PASS" start="2025-10-24T18:53:16.303225" elapsed="0.000000"/>
+</return>
+<msg time="2025-10-24T18:53:16.303225" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<doc>Perform GET request to /facts endpoint without a limit parameter</doc>
+<status status="PASS" start="2025-10-24T18:53:13.967483" elapsed="2.335742"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-10-24T18:53:16.303225" level="INFO">${body} = {'current_page': 1, 'data': [{'fact': 'Unlike dogs, cats do not have a sweet tooth. Scientists believe this is due to a mutation in a key taste receptor.', 'length': 114}, {'fact': 'When a cat chases ...</msg>
+<var>${body}</var>
+<arg>${response.json()}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-10-24T18:53:16.303225" elapsed="0.000000"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-10-24T18:53:16.303225" level="INFO">${data} = [{'fact': 'Unlike dogs, cats do not have a sweet tooth. Scientists believe this is due to a mutation in a key taste receptor.', 'length': 114}, {'fact': 'When a cat chases its prey, it keeps its head ...</msg>
+<var>${data}</var>
+<arg>${body['data']}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-10-24T18:53:16.303225" elapsed="0.000000"/>
+</kw>
+<kw name="Get Length" owner="BuiltIn">
+<msg time="2025-10-24T18:53:16.307886" level="INFO">Length is 10.</msg>
+<msg time="2025-10-24T18:53:16.307886" level="INFO">${data_length} = 10</msg>
+<var>${data_length}</var>
+<arg>${data}</arg>
+<doc>Returns and logs the length of the given item as an integer.</doc>
+<status status="PASS" start="2025-10-24T18:53:16.303225" elapsed="0.004661"/>
+</kw>
+<kw name="Should Be True" owner="BuiltIn">
+<arg>${data_length} &lt;= 10</arg>
+<arg>Returned more than 10 facts</arg>
+<doc>Fails if the given condition is not true.</doc>
+<status status="PASS" start="2025-10-24T18:53:16.307886" elapsed="0.000000"/>
+</kw>
+<kw name="Should Be Equal As Integers" owner="BuiltIn">
+<msg time="2025-10-24T18:53:16.309232" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${body['per_page']}</arg>
+<arg>10</arg>
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<status status="PASS" start="2025-10-24T18:53:16.307886" elapsed="0.001346"/>
+</kw>
+<status status="PASS" start="2025-10-24T18:53:13.967483" elapsed="2.341749"/>
+</test>
+<doc>Test suite for CatFact API using Robot Framework</doc>
+<status status="PASS" start="2025-10-24T18:52:30.552231" elapsed="45.757001"/>
+</suite>
+<statistics>
+<total>
+<stat pass="11" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Catfact Api Tests" id="s1" pass="11" fail="0" skip="0">Catfact Api Tests</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

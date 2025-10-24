@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.3.2 (Python 3.12.12 on win32)" generated="2025-10-23T09:34:45.727182" rpa="false" schemaversion="5">
+<suite id="s1" name="Catfact Api Robot" source="C:\Users\dolap\Downloads\catfact_api_robot">
+<suite id="s1-s1" name="Tests" source="C:\Users\dolap\Downloads\catfact_api_robot\tests">
+<suite id="s1-s1-s1" name="Catfact Api Tests" source="C:\Users\dolap\Downloads\catfact_api_robot\tests\catfact_api_tests.robot">
+<kw name="Create Session" owner="RequestsLibrary" type="SETUP">
+<msg time="2025-10-23T09:34:46.827132" level="INFO">Creating Session using : alias=catfact, url=https://catfact.ninja, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<arg>catfact</arg>
+<arg>${BASE_URL}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="PASS" start="2025-10-23T09:34:46.827132" elapsed="0.000000"/>
+</kw>
+<test id="s1-s1-s1-t1" name="Verify /fact response structure" line="20">
+<kw name="Get Random Fact" owner="api_keywords">
+<kw name="GET" owner="RequestsLibrary">
+<msg time="2025-10-23T09:34:47.383629" level="INFO">GET Request : url=https://catfact.ninja/fact 
+ path_url=/fact 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg time="2025-10-23T09:34:47.383629" level="INFO">GET Response : url=https://catfact.ninja/fact 
+ status=200, reason=OK 
+ headers={'Date': 'Thu, 23 Oct 2025 07:34:47 GMT', 'Content-Type': 'application/json', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Server': 'cloudflare', 'Cache-Control': 'no-cache, private', 'x-ratelimit-limit': '100', 'x-ratelimit-remaining': '82', 'access-control-allow-origin': '*', 'x-frame-options': 'SAMEORIGIN', 'x-xss-protection': '1; mode=block', 'x-content-type-options': 'nosniff', 'Nel': '{"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}', 'cf-cache-status': 'DYNAMIC', 'Report-To': '{"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=22NP2ADZaPAYj7uT6Wkek%2BycaZZ2o5Ma2NQwz0IVxiCY%2FSGoA3yVhXVluuCJ%2B5nlBkbb0D8MbAPtU5CJ85PR8OmazMY0TwaXJtL7n4xwRlxhgldHS%2BwQBUk%3D"}]}', 'Content-Encoding': 'gzip', 'Set-Cookie': 'XSRF-TOKEN=eyJpdiI6IlEyTGlEZ09GTHllTzdKakt4bDVsYVE9PSIsInZhbHVlIjoiZFVGbkNMdGw0cExleGxROFdjZVg0ZzQwY0NtSUE5a1RMazI4K3EyTEgyaE0zZXlBYkM3UjUrdThTL0NIQnpJOWk5Sm94SGxmSHRiYmMxTkxDWGtsVEFBaU5NdWQ2M25qYnV0bUFnRUFtQmlSQmVUaktnc2NUYXUyQUozdUwvd1kiLCJtYWMiOiI4NmIxODYyOGQ2MGQ4OTFiNTA5Nzc1ODRmMzk5Y2FhOTYyY2I4ZTY4MWVmNmJjNmNiZmQxNGUxZjFkOWRiYzFlIiwidGFnIjoiIn0%3D; SameSite=Lax; Secure; Path=/; Max-Age=7200; Expires=Thu, 23 Oct 2025 09:34:47 GMT, catfacts_session=eyJpdiI6IjhVTTk0dWppYis5L2UwWDlxMU1vcmc9PSIsInZhbHVlIjoiTVlaSlBwK3QyS042M3JUTFRqV21Hb3Q1UUtlTWN5U3BWdVVnSmU3U2VaSnY5UDQ1STBDTStsZGVkcHl1alU1dzZLSkRiTzhkWWcxUHZBNEF0UzZmTzhJbXhDMjlrNStzVDIxSFdFTFZXWE9WOTArVWZCdmxaU2RidjA4Z0xTR2ciLCJtYWMiOiJjNzY3Y2FmOGQ4YTRlOGJhMzcxZjhjZjc1YTY0ZDRmOGZhZmNiNmQyMTQyZDVkOTdiNzg3NmU5MDViYWEwNDQ5IiwidGFnIjoiIn0%3D; HttpOnly; SameSite=Lax; Secure; Path=/; Max-Age=7200; Expires=Thu, 23 Oct 2025 09:34:47 GMT, bQFMY8HhH7letqqf5IJ6tpLSpTtCnQ1F7eGwjE9Z=eyJpdiI6ImRYczZlSGVTRXdnbEdxV3J0MDEyZ0E9PSIsInZhbHVlIjoiRXk5VWpidU1iWXhteUFxMG1EVmpDdTVxNmpkdFYvQm53RzR6Q1RjVDB0dDVtd25ZcVg1RC9QSFlibkhoREorajlZMER0K2lLQ2xiWWpoODRCR0Q2by83cWdvWW1RdTErbW5LbW9qbmZCMDI5N2xSQzd2Vk45eWs0Vlk4a1J3TzRJdFRpWHhQRHl3UHF6WmhkR0FVaTlkNTRrNjNoRFZ4OVJuajFuUkpCaU95WkdmYXl2eVZ2bDQrYUtpRUVpRTd1RjE2K0FFVXFXaUxWTDl1dXZ5QlZxY21makxYK3lDNDBIZWgyR0xwWVd6cFNlczJnVUJ3RGg4UmQ3MXQrK2VXQ1NzVGFwdkVDb25RQkNGQyswdWFkUm9pdWtXWUJRckRTS2xRZlFLOXNIbDZxZTFFWVdrejhrVU9yZVhVa1JWYVl0OWd2cG1iNVNIUGdsV3dKU3Rsd2xBdHBtZ0F3Q1JWdzcvNkhoVGZacEk2SDN5SDA2VTVGSGxuSDBXZ2hndHBFIiwibWFjIjoiNTU1MGU2MTY4ZDVmMzhkYmE3YjFhZTAyNzZmZTdhN2FhZDhkMGM0NTNhZjFkZDRhMDMxODU0NDg2ZTJjMGI0NCIsInRhZyI6IiJ9; HttpOnly; SameSite=Lax; Secure; Path=/; Max-Age=7200; Expires=Thu, 23 Oct 2025 09:34:47 GMT', 'CF-RAY': '992f8dd06d96fd3a-SIN', 'alt-svc': 'h3=":443"; ma=86400'} 
+ body={"fact":"One reason that kittens sleep so much is because a growth hormone is released only during sleep.","length":96} 
+ </msg>
+<msg time="2025-10-23T09:34:47.383629" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>https://catfact.ninja/fact</arg>
+<doc>Sends a GET request.</doc>
+<status status="PASS" start="2025-10-23T09:34:46.839665" elapsed="0.543964"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>\n[REQUEST] GET /fact</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-10-23T09:34:47.383629" elapsed="0.008003"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Status: ${response.status_code}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-10-23T09:34:47.391632" elapsed="0.001673"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Body: ${response.text}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-10-23T09:34:47.393305" elapsed="0.000000"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-10-23T09:34:47.399060" level="INFO">{"fact":"One reason that kittens sleep so much is because a growth hormone is released only during sleep.","length":96}</msg>
+<arg>${response.text}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-10-23T09:34:47.397324" elapsed="0.001736"/>
+</kw>
+<return>
+<value>${response}</value>
+<status status="PASS" start="2025-10-23T09:34:47.399060" elapsed="0.001048"/>
+</return>
+<msg time="2025-10-23T09:34:47.401068" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<doc>Perform GET request to /fact endpoint</doc>
+<status status="PASS" start="2025-10-23T09:34:46.837085" elapsed="0.565151"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-10-23T09:34:47.404650" level="INFO">&lt;Response [200]&gt;</msg>
+<arg>${response}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-10-23T09:34:47.402236" elapsed="0.002414"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-10-23T09:34:47.408340" level="INFO">${body} = {'fact': 'One reason that kittens sleep so much is because a growth hormone is released only during sleep.', 'length': 96}</msg>
+<var>${body}</var>
+<arg>${response.json()}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-10-23T09:34:47.405733" elapsed="0.002607"/>
+</kw>
+<kw name="Dictionary Should Contain Key" owner="Collections">
+<arg>${body}</arg>
+<arg>fact</arg>
+<doc>Fails if ``key`` is not found from ``dictionary``.</doc>
+<status status="PASS" start="2025-10-23T09:34:47.410714" elapsed="0.000521"/>
+</kw>
+<kw name="Dictionary Should Contain Key" owner="Collections">
+<arg>${body}</arg>
+<arg>length</arg>
+<doc>Fails if ``key`` is not found from ``dictionary``.</doc>
+<status status="PASS" start="2025-10-23T09:34:47.411235" elapsed="0.003664"/>
+</kw>
+<kw name="Should Be String" owner="String">
+<arg>${body['fact']}</arg>
+<doc>Fails if the given ``item`` is not a string.</doc>
+<status status="PASS" start="2025-10-23T09:34:47.414899" elapsed="0.001709"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2025-10-23T09:34:47.419548" level="INFO">Length is 96.</msg>
+<arg>${body['fact']}</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2025-10-23T09:34:47.417986" elapsed="0.002784"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-10-23T09:34:47.422503" level="INFO">${fact} = One reason that kittens sleep so much is because a growth hormone is released only during sleep.</msg>
+<var>${fact}</var>
+<arg>${body['fact']}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-10-23T09:34:47.420770" elapsed="0.001733"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-10-23T09:34:47.426199" level="INFO">${fact_len} = 96</msg>
+<var>${fact_len}</var>
+<arg>len($fact)</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-10-23T09:34:47.422503" elapsed="0.004860"/>
+</kw>
+<kw name="Should Be Equal As Integers" owner="BuiltIn">
+<arg>${body['length']}</arg>
+<arg>${fact_len}</arg>
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<status status="PASS" start="2025-10-23T09:34:47.429439" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2025-10-23T09:34:46.827132" elapsed="0.602307"/>
+</test>
+<doc>Test suite for CatFact API using Robot Framework</doc>
+<status status="PASS" start="2025-10-23T09:34:45.855524" elapsed="1.645395"/>
+</suite>
+<status status="PASS" start="2025-10-23T09:34:45.847041" elapsed="1.680629"/>
+</suite>
+<status status="PASS" start="2025-10-23T09:34:45.773658" elapsed="1.789776"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Catfact Api Robot" id="s1" pass="1" fail="0" skip="0">Catfact Api Robot</stat>
+<stat name="Tests" id="s1-s1" pass="1" fail="0" skip="0">Catfact Api Robot.Tests</stat>
+<stat name="Catfact Api Tests" id="s1-s1-s1" pass="1" fail="0" skip="0">Catfact Api Robot.Tests.Catfact Api Tests</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
