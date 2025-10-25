@@ -3,7 +3,6 @@ Documentation     Test suite for CatFact API using Robot Framework
 Library           RequestsLibrary
 Library           Collections
 Library           String
-Library           BuiltIn
 Resource          ../resources/api_keywords.robot
 
 Suite Setup    Create Session    catfact    ${BASE_URL}
@@ -11,7 +10,7 @@ Suite Setup    Create Session    catfact    ${BASE_URL}
 *** Variables ***
 ${BASE_URL}       https://catfact.ninja
 ${MAX_LENGTH}     4
-${LIMIT}            3    
+${LIMIT}          3    
 
 
 *** Test Cases ***
@@ -45,10 +44,29 @@ Verify GET /facts returns 200
     ${response} =   Get Facts With Limit    ${LIMIT}  
     Should Be Equal As Integers    ${response.status_code}    200
 
-Verify /facts items structure
+Verify /facts items structure and response schema
     ${response} =    Get Facts With Limit    3
-    ${body} =        Set Variable   ${response.json()}
-    FOR    ${item}    IN    @{body['data']}
+    Should Be Equal As Integers    ${response.status_code}    200
+
+    ${json} =        Set Variable   ${response.json()}
+    Log To Console    \n[DEBUG] Full JSON: ${json}
+
+    # Validate top-level keys exist
+    Dictionary Should Contain Key    ${json}    data
+    Dictionary Should Contain Key    ${json}    total
+    Dictionary Should Contain Key    ${json}    per_page
+    Dictionary Should Contain Key    ${json}    last_page
+
+    # Validate data is a list
+    ${data}=    Set Variable    ${json['data']}
+    Should Be True    isinstance(${data}, list)
+
+    # Validate per_page and total fields
+    Should Be True    ${json['total']} >= 0
+    Should Be Equal As Integers    ${json['per_page']}    3
+    
+    # Loop through data and validate schema for each item
+    FOR    ${item}    IN    @{data}
         Validate Cat Fact Schema    ${item}
     END
 

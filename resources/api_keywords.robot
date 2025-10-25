@@ -29,7 +29,7 @@ Validate Cat Fact Schema
     
 Get Random Fact
     [Documentation]    Perform GET request to /fact endpoint
-     ${response} =    get    https://catfact.ninja/fact  
+     ${response} =    GET On Session    catfact    /fact  
     Log To Console      \n[REQUEST] GET /fact
     Log To Console    Status: ${response.status_code}
     Log To Console    Body: ${response.text}3
@@ -40,7 +40,7 @@ Get Random Fact With Max Length
     [Arguments]    ${max_length}
     [Documentation]    Perform GET request to /fact endpoint with max_length
     ${params}=    Create Dictionary    max_length=${max_length}
-    ${response}=   get     https://catfact.ninja/fact    params=${params}
+    ${response}=   GET On Session    catfact    /fact    params=${params}
     Log To Console    \n[DEBUG] GET /fact?max_length=${max_length}
     Log To Console    Status Code: ${response.status_code}
     Log To Console    Response Body: ${response.text}
@@ -54,7 +54,7 @@ Get Facts With Limit
         Create Session    catfact    https://catfact.ninja
     END
     ${params} =        Create Dictionary                      limit=${limit}
-    ${response} =      get     https://catfact.ninja/facts    params=${params}
+    ${response} =     GET On Session    catfact    /facts    params=${params}
     Log To Console    \n[REQUEST] GET /facts?limit=${limit}
     Log To Console    Status: ${response.status_code}
     Log To Console    Body: ${response.text}
@@ -67,7 +67,7 @@ Get Facts Without Limit
     IF    not ${exists}
         Create Session    catfact    https://catfact.ninja
     END
-    ${response}=    get    https://catfact.ninja/facts
+    ${response}=    GET On Session    catfact    /facts
     Log To Console    \n[REQUEST] GET /facts (no limit)
     Log To Console    Status: ${response.status_code}
     Log To Console    Body: ${response.text}
@@ -77,7 +77,7 @@ Get Facts With Max Length
     [Arguments]    ${max_length}
     [Documentation]    Perform GET request to /facts endpoint with max_length
     ${params}=    Create Dictionary    max_length=${max_length}
-    ${response}=   get     https://catfact.ninja/facts    params=${params}
+    ${response}=  GET On Session    catfact    /facts    params=${params}
     Log To Console    \n[DEBUG] GET /facts?max_length=${max_length}
     Log To Console    Status Code: ${response.status_code}
     Log To Console    Response Body: ${response.text}
@@ -92,15 +92,10 @@ Get Facts With Max_length and Limit
     Run Keyword If    ${limit} != None         Set To Dictionary    ${params}    limit=${limit}
     Run Keyword If    ${max_length} != None    Set To Dictionary    ${params}    max_length=${max_length}
 
-    ${response}=     get     https://catfact.ninja/facts    params=${params}
+    ${response}=    GET On Session    catfact    /facts    params=${params}
     Log To Console    \n[DEBUG] GET /facts with params: ${params}
     Log To Console    Status Code: ${response.status_code}
     Log To Console    Response Body: ${response.text}
     RETURN    ${response}
 
-Log Fact Details
-    [Arguments]    @{facts}
-    FOR    ${item}    IN    @{facts}
-        Log To Console    Fact: ${item['fact']}
-        Log To Console    Length: ${item['length']}
-    END
+
