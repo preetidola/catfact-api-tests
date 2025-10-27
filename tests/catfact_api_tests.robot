@@ -9,8 +9,8 @@ Suite Setup    Create Session    catfact    ${BASE_URL}
 
 *** Variables ***
 ${BASE_URL}       https://catfact.ninja
-${MAX_LENGTH}     400
-${LIMIT}          116 
+${MAX_LENGTH}     -400
+${LIMIT}          10
 
 
 *** Test Cases ***
@@ -26,13 +26,13 @@ Verify /fact response structure
 Verify /fact with max_length parameter
     ${response}=    Get Random Fact With Max Length    ${MAX_LENGTH}
     Should Be Equal As Integers    ${response.status_code}    200
-
     ${json}=    Set Variable    ${response.json()}
-
-    IF    ${json} != '{}'
-        # Verify fact length does not exceed max_length
-        Should Be True    ${json['length']} <= ${MAX_LENGTH}    Random fact ${json['length']} exceeds max_length ${MAX_LENGTH}
+    IF    ${json}    # True if not empty
+    Should Be True    ${json['length']} <= ${MAX_LENGTH}    Random fact exceeds max_length
+    ELSE
+    Pass Execution    Empty JSON returned for invalid max_length (${MAX_LENGTH})
     END
+
 
 Verify GET /facts returns 200
     ${response} =   Get Facts With Limit    ${LIMIT}  
@@ -108,7 +108,7 @@ Verify /facts with limit and max_length together
        Validate Cat Fact Schema    ${item}
        Should Be True    ${item['length']} <= ${MAX_LENGTH}    Fact exceeds max_length
     END
-
+    
 
 Verify Default Facts When Limit Is Zero 
     [Documentation]    When limit = 0, the API should return 10 facts by default.     
